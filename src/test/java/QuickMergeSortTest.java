@@ -13,4 +13,11 @@ public class QuickMergeSortTest {
         assertThat(Arrays.toString(quickMergeSort.sort())).isEqualTo("[1]");
     }
 
+    @Test
+    public void TwoElementsArraySortTest(){
+        int[] arrayToSort = new int[]{1,2};
+        QuickMergeSort quickMergeSort = new QuickMergeSort(arrayToSort);
+        assertThat(Arrays.toString(quickMergeSort.sort())).isEqualTo("[1, 2]");
+    }
+
 }
