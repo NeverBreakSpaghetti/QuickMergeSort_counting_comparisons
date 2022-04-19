@@ -16,13 +16,13 @@ public class QuickMergeSortTest {
     }
 
     @Test
-    public void TwoElementsArraySortTest(){
+    public void TwoElementsSortedArraySortTest(){
         quickMergeSort.setArrayToSort(new int[]{1,2});
         assertThat(Arrays.toString(quickMergeSort.sort())).isEqualTo("[1, 2]");
     }
 
     @Test
-    public void TwoElementsUnsortedArraySortTest(){
+    public void TwoElementsArraySortTest(){
         quickMergeSort.setArrayToSort(new int[]{2,1});
         assertThat(Arrays.toString(quickMergeSort.sort())).isEqualTo("[1, 2]");
     }
