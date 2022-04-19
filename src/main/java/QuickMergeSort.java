@@ -5,6 +5,12 @@ public class QuickMergeSort {
     }
 
     public int[] sort() {
+        int temp=0;
+        if ( (arraytoSort.length>1) && (arraytoSort[0]>arraytoSort[1]) ) {
+            temp = arraytoSort[0];
+            arraytoSort[0] = arraytoSort[1];
+            arraytoSort[1] = temp;
+        }
         return arraytoSort;
     }
 
