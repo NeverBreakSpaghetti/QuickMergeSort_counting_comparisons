@@ -7,4 +7,8 @@ public class QuickMergeSort {
     public int[] sort() {
         return arraytoSort;
     }
+
+    public void setArrayToSort(int[] newArrayToSort) {
+        this.arraytoSort=newArrayToSort;
+    }
 }

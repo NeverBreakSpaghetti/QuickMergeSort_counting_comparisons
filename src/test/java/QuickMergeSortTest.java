@@ -6,17 +6,18 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 public class QuickMergeSortTest {
 
+    int[] arrayToSort;
+    QuickMergeSort quickMergeSort = new QuickMergeSort(null);
+
     @Test
     public void singleElementArraySortTest(){
-        int[] arrayToSort = new int[]{1};
-        QuickMergeSort quickMergeSort = new QuickMergeSort(arrayToSort);
+        quickMergeSort.setArrayToSort(new int[]{1});
         assertThat(Arrays.toString(quickMergeSort.sort())).isEqualTo("[1]");
     }
 
     @Test
     public void TwoElementsArraySortTest(){
-        int[] arrayToSort = new int[]{1,2};
-        QuickMergeSort quickMergeSort = new QuickMergeSort(arrayToSort);
+        quickMergeSort.setArrayToSort(new int[]{1,2});
         assertThat(Arrays.toString(quickMergeSort.sort())).isEqualTo("[1, 2]");
     }
 
