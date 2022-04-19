@@ -37,4 +37,10 @@ public class QuickMergeSortTest {
         quickMergeSort.setArrayToSort(new int[]{});
         assertThat(Arrays.toString(quickMergeSort.sort())).isEqualTo("[]");
     }
+
+    @Test
+    public void ThreeElementsArraySortTest(){
+        quickMergeSort.setArrayToSort(new int[]{2,3,1});
+        assertThat(Arrays.toString(quickMergeSort.sort())).isEqualTo("[1, 2, 3]");
+    }
 }
