@@ -26,5 +26,10 @@ public class QuickMergeSortTest {
         quickMergeSort.setArrayToSort(new int[]{2,1});
         assertThat(Arrays.toString(quickMergeSort.sort())).isEqualTo("[1, 2]");
     }
+    @Test
+    public void NullArraySortTest(){
+        quickMergeSort.setArrayToSort(null);
+        assertThat(Arrays.toString(quickMergeSort.sort())).isEqualTo("null");
+    }
 
 }
