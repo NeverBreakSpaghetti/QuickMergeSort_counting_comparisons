@@ -32,4 +32,9 @@ public class QuickMergeSortTest {
         assertThat(Arrays.toString(quickMergeSort.sort())).isEqualTo("null");
     }
 
+    @Test
+    public void EmptyArraySortTest(){
+        quickMergeSort.setArrayToSort(new int[]{});
+        assertThat(Arrays.toString(quickMergeSort.sort())).isEqualTo("[]");
+    }
 }
