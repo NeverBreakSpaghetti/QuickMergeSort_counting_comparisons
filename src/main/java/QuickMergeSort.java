@@ -9,10 +9,11 @@ public class QuickMergeSort {
         return arraytoSort;
     }
 
-    private void partition() {
+    private int partition() {
+        int pivotPosition=0;
         if ( (arraytoSort!=null) && (arraytoSort.length>1) ) {
-            int pointerLeft=0;
-            int pivot=arraytoSort[pointerLeft];
+            int pivot=arraytoSort[pivotPosition];
+            int pointerLeft=pivotPosition;
             int pointerRight= arraytoSort.length;;
             while (pointerLeft<pointerRight) {
                 /* scorro l'array da destra in cerca di un elemento inferiore o uguale al pivot  */
@@ -30,8 +31,10 @@ public class QuickMergeSort {
             }
             /* l'ultimo elemento puntato dal puntatore destro sarà l'ultimo inferiore o uguale al perno.
             Lo scambio con questo in modo da avere un array con tutti gli elemnti inferiori o uguali al perno a sinistra di questo e tutti quelli maggiori alla sua destra */
-            swap(0,pointerRight);
+            swap(pivotPosition,pointerRight);
+            pivotPosition=pointerRight;
         }
+        return pivotPosition;
     }
 
     private void swap(int pointer1, int pointer2) {
