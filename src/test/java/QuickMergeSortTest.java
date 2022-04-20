@@ -96,4 +96,11 @@ public class QuickMergeSortTest {
         quickMergeSort.merge(0,1,1,4);
         assertThat(Arrays.toString(quickMergeSort.getArray())).isEqualTo("[3, 6, 8, 9]");
     }
+
+    @Test
+    public void mergingSortedContiguousPartitionsOrderInverseTest(){
+        quickMergeSort.setArrayToSort(new int[]{9,3,6,8});
+        quickMergeSort.merge(0,1,1,4);
+        assertThat(Arrays.toString(quickMergeSort.getArray())).isEqualTo("[3, 6, 8, 9]");
+    }
 }
