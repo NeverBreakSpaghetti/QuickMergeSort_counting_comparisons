@@ -61,4 +61,11 @@ public class QuickMergeSortTest {
         quickMergeSort.setArrayToSort(new int[]{2,3,1,2});
         assertThat(quickMergeSort.partition()).isEqualTo(2);
     }
+
+    @Test
+    public void ArrayPartiotionTest(){
+        quickMergeSort.setArrayToSort(new int[]{2,3,1,5,2});
+        quickMergeSort.partition();
+        assertThat(Arrays.toString(quickMergeSort.getArray())).isEqualTo("[1, 2, 2, 5, 3]");
+    }
 }

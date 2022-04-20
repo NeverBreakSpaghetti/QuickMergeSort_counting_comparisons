@@ -46,4 +46,8 @@ public class QuickMergeSort {
     public void setArrayToSort(int[] newArrayToSort) {
         this.arraytoSort=newArrayToSort;
     }
+
+    public int[] getArray() {
+        return null;
+    }
 }
