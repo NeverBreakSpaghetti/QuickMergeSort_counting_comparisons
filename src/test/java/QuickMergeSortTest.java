@@ -16,43 +16,56 @@ public class QuickMergeSortTest {
     }
 
     @Test
-    public void TwoElementsSortedArraySortTest(){
+    public void twoElementsSortedArraySortTest(){
         quickMergeSort.setArrayToSort(new int[]{1,2});
         assertThat(Arrays.toString(quickMergeSort.sort())).isEqualTo("[1, 2]");
     }
 
     @Test
-    public void TwoElementsArraySortTest(){
+    public void twoElementsArraySortTest(){
         quickMergeSort.setArrayToSort(new int[]{2,1});
         assertThat(Arrays.toString(quickMergeSort.sort())).isEqualTo("[1, 2]");
     }
     @Test
-    public void NullArraySortTest(){
+    public void nullArraySortTest(){
         quickMergeSort.setArrayToSort(null);
         assertThat(Arrays.toString(quickMergeSort.sort())).isEqualTo("null");
     }
 
     @Test
-    public void EmptyArraySortTest(){
+    public void emptyArraySortTest(){
         quickMergeSort.setArrayToSort(new int[]{});
         assertThat(Arrays.toString(quickMergeSort.sort())).isEqualTo("[]");
     }
 
     @Test
-    public void ThreeElementsArraySortTest(){
+    public void threeElementsArraySortTest(){
         quickMergeSort.setArrayToSort(new int[]{2,3,1});
         assertThat(Arrays.toString(quickMergeSort.sort())).isEqualTo("[1, 2, 3]");
     }
 
     @Test
-    public void FourElementsArraySortTest(){
+    public void fourElementsArraySortTest(){
         quickMergeSort.setArrayToSort(new int[]{2,3,1,4});
         assertThat(Arrays.toString(quickMergeSort.sort())).isEqualTo("[1, 2, 3, 4]");
     }
 
     @Test
-    public void RepetitionElementsArraySortTest(){
+    public void repetitionElementsArraySortTest(){
         quickMergeSort.setArrayToSort(new int[]{2,3,1,2});
         assertThat(Arrays.toString(quickMergeSort.sort())).isEqualTo("[1, 2, 2, 3]");
+    }
+
+    @Test
+    public void positionPivotArrayPartitionTest(){
+        quickMergeSort.setArrayToSort(new int[]{2,3,1,2});
+        assertThat(quickMergeSort.partition()).isEqualTo(2);
+    }
+
+    @Test
+    public void arrayPartitionTest(){
+        quickMergeSort.setArrayToSort(new int[]{2,3,1,5,2});
+        quickMergeSort.partition();
+        assertThat(Arrays.toString(quickMergeSort.getArray())).isEqualTo("[1, 2, 2, 5, 3]");
     }
 }
