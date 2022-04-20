@@ -1,29 +1,29 @@
 public class QuickMergeSort {
-    private int[] arraytoSort;
+    private int[] arrayToSort;
     public QuickMergeSort(int[] arrayToSort) {
-        this.arraytoSort=arrayToSort;
+        this.arrayToSort =arrayToSort;
     }
 
     public int[] sort() {
         partition();
-        return arraytoSort;
+        return arrayToSort;
     }
 
     int partition() {
         int pivotPosition=0;
-        if ( (arraytoSort!=null) && (arraytoSort.length>1) ) {
-            int pivot=arraytoSort[pivotPosition];
+        if ( (arrayToSort !=null) && (arrayToSort.length>1) ) {
+            int pivot= arrayToSort[pivotPosition];
             int pointerLeft=pivotPosition;
-            int pointerRight= arraytoSort.length;;
+            int pointerRight= arrayToSort.length;;
             while (pointerLeft<pointerRight) {
                 /* scorro l'array da destra in cerca di un elemento inferiore o uguale al pivot  */
                 do {
                     pointerRight--;
-                } while (arraytoSort[pointerRight] > pivot);
+                } while (arrayToSort[pointerRight] > pivot);
                 /* scorro l'array da sinistra in cerca di un elemento maggiore del pivot  */
                 do {
                     pointerLeft++;
-                } while ( (pointerLeft<arraytoSort.length) && (arraytoSort[pointerLeft] <= pivot) );
+                } while ( (pointerLeft< arrayToSort.length) && (arrayToSort[pointerLeft] <= pivot) );
                 /* se non ho controllato tutti gli elementi, scambia quelli puntati dai due puntatori */
                 if (pointerLeft < pointerRight) {
                     swap(pointerLeft, pointerRight);
@@ -38,16 +38,16 @@ public class QuickMergeSort {
     }
 
     private void swap(int pointer1, int pointer2) {
-        int temp = arraytoSort[pointer1];
-        arraytoSort[pointer1] = arraytoSort[pointer2];
-        arraytoSort[pointer2] = temp;
+        int temp = arrayToSort[pointer1];
+        arrayToSort[pointer1] = arrayToSort[pointer2];
+        arrayToSort[pointer2] = temp;
     }
 
     public void setArrayToSort(int[] newArrayToSort) {
-        this.arraytoSort=newArrayToSort;
+        this.arrayToSort =newArrayToSort;
     }
 
     public int[] getArray() {
-        return arraytoSort;
+        return arrayToSort;
     }
 }
