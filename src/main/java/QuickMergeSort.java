@@ -51,6 +51,27 @@ public class QuickMergeSort {
         return arrayToSort;
     }
 
+    /* Il puntatore alla fine di ogni partizione punta alla posizione successiva dell'ultimo elemento */
     public void merge(int begin1, int end1, int beginTarget, int endTarget) {
+        int i1 = begin1;
+        int i2 = beginTarget + 1;
+        int positionResult = beginTarget;
+        /* salvo il primo elemento puntato dal puntatore delle posizioni definitive */
+        int temp = arrayToSort[positionResult];
+        int positionToPlace;
+        if (arrayToSort[i1] < arrayToSort[i2]) {
+            positionToPlace = i1;
+            i1++;
+        } else {
+            positionToPlace = i2;
+            i2++;
+        }
+        /* copio l'elemento minore tra le due partizioni nella sua posizione definitiva e salvo l'elemento nella posizione definitiva successiva
+         * copiandolo nella posizione precendete dell'elemento posizionato definitivamente */
+        arrayToSort[positionResult] = arrayToSort[positionToPlace];
+        positionResult++;
+        arrayToSort[positionToPlace] = arrayToSort[positionResult];
+        /* ripristino il primo elemento puntato dal puntatore delle posizioni definitive salvato inizialmente in temp */
+        arrayToSort[i1 - 1] = temp;
     }
 }
