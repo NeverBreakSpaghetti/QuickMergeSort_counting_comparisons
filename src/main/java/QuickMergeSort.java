@@ -48,6 +48,6 @@ public class QuickMergeSort {
     }
 
     public int[] getArray() {
-        return null;
+        return arraytoSort;
     }
 }
