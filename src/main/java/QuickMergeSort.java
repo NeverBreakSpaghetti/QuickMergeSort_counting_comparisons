@@ -9,7 +9,7 @@ public class QuickMergeSort {
         return arraytoSort;
     }
 
-    private int partition() {
+    int partition() {
         int pivotPosition=0;
         if ( (arraytoSort!=null) && (arraytoSort.length>1) ) {
             int pivot=arraytoSort[pivotPosition];
