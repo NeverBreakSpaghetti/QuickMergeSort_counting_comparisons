@@ -71,6 +71,15 @@ public class QuickMergeSort {
         arrayToSort[positionResult] = arrayToSort[positionToPlace];
         positionResult++;
         arrayToSort[positionToPlace] = arrayToSort[positionResult];
+        /* se non ho terminato di scorrere la partizione target non devo fare nulla perchè è quella corrispondente alle posizioni definitive ed è già ordinata.
+         * se, invece, non ho terminato di scorrere la partizione 1 allora devo copiare tutti gli elementi rimasti di seguito agli altri nelle posizioni definitive */
+        while (i1 < end1) {
+            arrayToSort[positionResult] = arrayToSort[i1];
+            positionResult++;
+            /* come prima copio l'elemento nella sua posizione definitiva e salvo il successivo nella posizione precedente */
+            arrayToSort[i1] = arrayToSort[positionResult];
+            i1++;
+        }
         /* ripristino il primo elemento puntato dal puntatore delle posizioni definitive salvato inizialmente in temp */
         arrayToSort[i1 - 1] = temp;
     }
