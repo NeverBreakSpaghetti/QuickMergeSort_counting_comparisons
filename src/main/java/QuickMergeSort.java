@@ -50,4 +50,7 @@ public class QuickMergeSort {
     public int[] getArray() {
         return arrayToSort;
     }
+
+    public void merge(int begin1, int end1, int beginTarget, int endTarget) {
+    }
 }
