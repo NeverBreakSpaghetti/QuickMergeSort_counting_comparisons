@@ -131,4 +131,11 @@ public class QuickMergeSortTest {
         quickMergeSort.merge(0,2,4,9);
         assertThat(Arrays.toString(quickMergeSort.getArray())).isEqualTo("[4, 3, 0, 1, 5, 6, 7, 8, 9]");
     }
+
+    @Test
+    public void mSortLeafTest(){
+        quickMergeSort.setArrayToSort(new int[]{0,1,2});
+        quickMergeSort.mergeSort(0,1,2);
+        assertThat(Arrays.toString(quickMergeSort.getArray())).isEqualTo("[2, 1, 0]");
+    }
 }

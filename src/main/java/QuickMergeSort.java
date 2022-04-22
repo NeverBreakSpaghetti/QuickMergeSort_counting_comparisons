@@ -87,4 +87,7 @@ public class QuickMergeSort {
         /* ripristino il primo elemento puntato dal puntatore delle posizioni definitive salvato inizialmente in temp */
         arrayToSort[i1 - 1] = temp;
     }
+
+    public void mergeSort(int i, int i1, int i2) {
+    }
 }
