@@ -203,4 +203,15 @@ public class QuickMergeSortTest {
         verify(mockQuickMergeSort).mergeSort(7,9,0);
         verify(mockQuickMergeSort).mergeSort(5,7,7);
     }
+
+    @Test
+    public void firstStepMergeSortOnOneElementTest(){
+        doCallRealMethod().when(mockQuickMergeSort).setArrayToSort(any());
+        doCallRealMethod().when(mockQuickMergeSort).firstStep(anyInt(),anyInt(),anyInt());
+
+        mockQuickMergeSort.setArrayToSort(new int[]{0,1,2});
+
+        mockQuickMergeSort.firstStep(2,3,0);
+        verify(mockQuickMergeSort,never()).mergeSort(anyInt(),anyInt(),anyInt());
+    }
 }
