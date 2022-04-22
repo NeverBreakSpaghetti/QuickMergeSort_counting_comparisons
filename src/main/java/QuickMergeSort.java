@@ -88,7 +88,7 @@ public class QuickMergeSort {
         arrayToSort[i1 - 1] = temp;
     }
 
-    public void mergeSort(int i, int i1, int i2) {
-        swap(i,i2);
+    public void mergeSort(int begin, int end, int target) {
+        swap(begin,target);
     }
 }

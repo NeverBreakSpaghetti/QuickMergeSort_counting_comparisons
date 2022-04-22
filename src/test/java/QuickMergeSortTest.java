@@ -133,7 +133,7 @@ public class QuickMergeSortTest {
     }
 
     @Test
-    public void mSortLeafTest(){
+    public void mergeSortLeafTest(){
         quickMergeSort.setArrayToSort(new int[]{0,1,2});
         quickMergeSort.mergeSort(0,1,2);
         assertThat(Arrays.toString(quickMergeSort.getArray())).isEqualTo("[2, 1, 0]");
