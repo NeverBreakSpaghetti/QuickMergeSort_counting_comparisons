@@ -89,6 +89,13 @@ public class QuickMergeSort {
     }
 
     public void mergeSort(int begin, int end, int target) {
-        swap(begin,target);
+        int nElements = end - begin;
+        if(nElements == 1)
+            swap(begin,target);
+        else{
+            int q = nElements/2;
+            mergeSort(begin+q,end,target+q);
+            mergeSort(begin,begin+q,begin+q);
+        }
     }
 }
