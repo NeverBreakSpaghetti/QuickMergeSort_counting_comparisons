@@ -101,10 +101,11 @@ public class QuickMergeSort {
 
     public void firstStep(int begin, int end, int target) {
         int nElements = end - begin;
-        int leftHalfElements = nElements / 2;
-        int rightHalfElements = nElements - leftHalfElements;
-        mergeSort(begin + leftHalfElements, end, target);
-        mergeSort(begin, begin + leftHalfElements, begin + rightHalfElements);
-
+        if (nElements > 1) {
+            int leftHalfElements = nElements / 2;
+            int rightHalfElements = nElements - leftHalfElements;
+            mergeSort(begin + leftHalfElements, end, target);
+            mergeSort(begin, begin + leftHalfElements, begin + rightHalfElements);
+        }
     }
 }
