@@ -237,4 +237,11 @@ public class QuickMergeSortTest {
         mockQuickMergeSort.firstStep(2,4,0);
         verify(mockQuickMergeSort).merge(0,1,2,4);
     }
+
+    @Test
+    public void mergeAfterFirstStepOrderArrayTest(){
+        quickMergeSort.setArrayToSort(new int[]{0,1,9,8});
+        quickMergeSort.firstStep(2,4,0);
+        assertThat(Arrays.toString(quickMergeSort.getArray())).isEqualTo("[0, 1, 8, 9]");
+    }
 }
