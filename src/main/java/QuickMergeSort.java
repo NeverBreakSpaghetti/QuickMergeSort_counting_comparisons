@@ -54,7 +54,8 @@ public class QuickMergeSort {
     /* Il puntatore alla fine di ogni partizione punta alla posizione successiva dell'ultimo elemento */
     public void merge(int begin1, int end1, int beginTarget, int endTarget) {
         int i1 = begin1;
-        int i2 = beginTarget + ( end1 - begin1 );
+        int nElementi1 = end1 - begin1;
+        int i2 = beginTarget + nElementi1;
         int positionResult = beginTarget;
         /* salvo il primo elemento puntato dal puntatore delle posizioni definitive */
         int temp = arrayToSort[positionResult];
