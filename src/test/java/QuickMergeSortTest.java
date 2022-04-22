@@ -1,8 +1,10 @@
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 
 import java.util.Arrays;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+import static org.mockito.Mockito.*;
 
 public class QuickMergeSortTest {
 
@@ -137,5 +139,19 @@ public class QuickMergeSortTest {
         quickMergeSort.setArrayToSort(new int[]{0,1,2});
         quickMergeSort.mergeSort(0,1,2);
         assertThat(Arrays.toString(quickMergeSort.getArray())).isEqualTo("[2, 1, 0]");
+    }
+
+    @Test
+    public void mergeSortCallTest(){
+        QuickMergeSort mockQuickMergeSort = mock(QuickMergeSort.class);
+
+        doCallRealMethod().when(mockQuickMergeSort).setArrayToSort(any());
+        doCallRealMethod().when(mockQuickMergeSort).mergeSort(anyInt(),anyInt(),anyInt());
+
+        mockQuickMergeSort.setArrayToSort(new int[]{0,1,2,4});
+
+        mockQuickMergeSort.mergeSort(0,2,2);
+        verify(mockQuickMergeSort).mergeSort(1,2,3);
+        verify(mockQuickMergeSort).mergeSort(0,1,1);
     }
 }
