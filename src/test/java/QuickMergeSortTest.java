@@ -1,15 +1,12 @@
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
-
 import java.util.Arrays;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.mockito.Mockito.*;
 
 public class QuickMergeSortTest {
-
-    int[] arrayToSort;
     QuickMergeSort quickMergeSort = new QuickMergeSort(null);
+    QuickMergeSort mockQuickMergeSort = mock(QuickMergeSort.class);
 
     @Test
     public void singleElementArraySortTest(){
@@ -143,8 +140,6 @@ public class QuickMergeSortTest {
 
     @Test
     public void mergeSortCallTest(){
-        QuickMergeSort mockQuickMergeSort = mock(QuickMergeSort.class);
-
         doCallRealMethod().when(mockQuickMergeSort).setArrayToSort(any());
         doCallRealMethod().when(mockQuickMergeSort).mergeSort(anyInt(),anyInt(),anyInt());
 
@@ -157,8 +152,6 @@ public class QuickMergeSortTest {
 
     @Test
     public void mergeSortNumberOfCallsTest(){
-        QuickMergeSort mockQuickMergeSort = mock(QuickMergeSort.class);
-
         doCallRealMethod().when(mockQuickMergeSort).setArrayToSort(any());
         doCallRealMethod().when(mockQuickMergeSort).mergeSort(anyInt(),anyInt(),anyInt());
 
