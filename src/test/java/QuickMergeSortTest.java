@@ -191,4 +191,14 @@ public class QuickMergeSortTest {
         quickMergeSort.mergeSort(5,10,0);
         assertThat(Arrays.toString(quickMergeSort.getArray())).isEqualTo("[0, 1, 2, 3, 9, 7, 5, 4, 6, 8]");
     }
+
+    @Test
+    public void firstStepMergeSortTest(){
+        doCallRealMethod().when(mockQuickMergeSort).setArrayToSort(any());
+        doCallRealMethod().when(mockQuickMergeSort).mergeSort(anyInt(),anyInt(),anyInt());
+
+        mockQuickMergeSort.setArrayToSort(new int[]{0,1,2,3,4,5,6,7,8});
+        mockQuickMergeSort.firstStep(5,9,0);
+        verify(mockQuickMergeSort, times(6)).mergeSort(anyInt(),anyInt(),anyInt());
+    }
 }

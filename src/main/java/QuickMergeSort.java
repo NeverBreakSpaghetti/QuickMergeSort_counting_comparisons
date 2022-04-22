@@ -98,4 +98,7 @@ public class QuickMergeSort {
             mergeSort(begin,begin+halfNElements,begin+halfNElements);
         }
     }
+
+    public void firstStep(int i, int i1, int i2) {
+    }
 }
