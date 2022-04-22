@@ -184,4 +184,11 @@ public class QuickMergeSortTest {
         inOrder.verify(mockQuickMergeSort).mergeSort(6,7,8);
         inOrder.verify(mockQuickMergeSort).mergeSort(5,6,6);
     }
+
+    @Test
+    public void mergeSortRecursionArrayResultTest(){ /* Cambierà quanto introdurrò il merge nel corpo del mergesort */
+        quickMergeSort.setArrayToSort(new int[]{0,1,2,3,4,5,6,7,8,9});
+        quickMergeSort.mergeSort(5,10,0);
+        assertThat(Arrays.toString(quickMergeSort.getArray())).isEqualTo("[0, 1, 2, 3, 9, 7, 5, 4, 6, 8]");
+    }
 }
