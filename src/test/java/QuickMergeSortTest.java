@@ -68,4 +68,67 @@ public class QuickMergeSortTest {
         quickMergeSort.partition();
         assertThat(Arrays.toString(quickMergeSort.getArray())).isEqualTo("[1, 2, 2, 5, 3]");
     }
+
+    @Test
+    public void mergingSortedContiguousShortPartitionsTest(){
+        quickMergeSort.setArrayToSort(new int[]{8,3,9});
+        quickMergeSort.merge(0,1,1,3);
+        assertThat(Arrays.toString(quickMergeSort.getArray())).isEqualTo("[3, 8, 9]");
+    }
+
+    @Test
+    public void mergingSortedNonContiguousShortPartitionsTest(){
+        quickMergeSort.setArrayToSort(new int[]{8,2,3,9});
+        quickMergeSort.merge(0,1,2,4);
+        assertThat(Arrays.toString(quickMergeSort.getArray())).isEqualTo("[3, 2, 8, 9]");
+    }
+
+    @Test
+    public void mergingSortedContiguousPartitionsTest(){
+        quickMergeSort.setArrayToSort(new int[]{6,3,8,9});
+        quickMergeSort.merge(0,1,1,4);
+        assertThat(Arrays.toString(quickMergeSort.getArray())).isEqualTo("[3, 6, 8, 9]");
+    }
+
+    @Test
+    public void mergingSortedContiguousPartitionsOrderMixedTest(){
+        quickMergeSort.setArrayToSort(new int[]{8,3,6,9});
+        quickMergeSort.merge(0,1,1,4);
+        assertThat(Arrays.toString(quickMergeSort.getArray())).isEqualTo("[3, 6, 8, 9]");
+    }
+
+    @Test
+    public void mergingSortedContiguousPartitionsOrderInverseTest(){
+        quickMergeSort.setArrayToSort(new int[]{9,3,6,8});
+        quickMergeSort.merge(0,1,1,4);
+        assertThat(Arrays.toString(quickMergeSort.getArray())).isEqualTo("[3, 6, 8, 9]");
+    }
+
+    @Test
+    public void mergingSortedContiguousMultiElementsPartitionsTest(){
+        quickMergeSort.setArrayToSort(new int[]{8,9,3,4,5,7});
+        quickMergeSort.merge(0,2,2,6);
+        assertThat(Arrays.toString(quickMergeSort.getArray())).isEqualTo("[4, 3, 5, 7, 8, 9]");
+    }
+
+    @Test
+    public void mergingSortedNonContiguousMultiElementsPartitionsTest(){
+        quickMergeSort.setArrayToSort(new int[]{8,9,0,3,4,5,7});
+        quickMergeSort.merge(0,2,3,7);
+        assertThat(Arrays.toString(quickMergeSort.getArray())).isEqualTo("[4, 3, 0, 5, 7, 8, 9]");
+    }
+
+    @Test
+    public void mergingSortedNonContiguousDifferentNumberOfElementsPartitionsTest(){
+        quickMergeSort.setArrayToSort(new int[]{6,8,9,0,1,3,4,5,7});
+        quickMergeSort.merge(0,3,4,9);
+        assertThat(Arrays.toString(quickMergeSort.getArray())).isEqualTo("[4, 3, 1, 0, 5, 6, 7, 8, 9]");
+    }
+
+    @Test
+    public void mergingSortedNonContiguousDifferentNumberOfElements2PartitionsTest(){
+        quickMergeSort.setArrayToSort(new int[]{6,8,0,1,3,4,5,7,9});
+        quickMergeSort.merge(0,2,4,9);
+        assertThat(Arrays.toString(quickMergeSort.getArray())).isEqualTo("[4, 3, 0, 1, 5, 6, 7, 8, 9]");
+    }
 }
