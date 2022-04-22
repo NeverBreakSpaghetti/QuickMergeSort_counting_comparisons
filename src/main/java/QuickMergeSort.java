@@ -89,5 +89,6 @@ public class QuickMergeSort {
     }
 
     public void mergeSort(int i, int i1, int i2) {
+        swap(i,i2);
     }
 }
