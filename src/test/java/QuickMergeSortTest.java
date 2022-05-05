@@ -60,13 +60,13 @@ public class QuickMergeSortTest {
     @Test
     public void positionPivotArrayPartitionTest(){
         quickMergeSort.setArrayToSort(new int[]{2,3,1,2});
-        assertThat(quickMergeSort.partition()).isEqualTo(2);
+        assertThat(quickMergeSort.partition(0,quickMergeSort.getArray().length)).isEqualTo(2);
     }
 
     @Test
     public void arrayPartitionTest(){
         quickMergeSort.setArrayToSort(new int[]{2,3,1,5,2});
-        quickMergeSort.partition();
+        quickMergeSort.partition(0,quickMergeSort.getArray().length);
         assertThat(Arrays.toString(quickMergeSort.getArray())).isEqualTo("[1, 2, 2, 5, 3]");
     }
 
@@ -246,23 +246,44 @@ public class QuickMergeSortTest {
     }
 
     @Test
-    public void mergeAfterFirstStepOrderFourElementsArrayTestTest(){
+    public void mergeAfterFirstStepOrderFourElementsArrayTest(){
         quickMergeSort.setArrayToSort(new int[]{0,1,2,3,4,9,6,8,7});
         quickMergeSort.firstStep(5,9,0);
         assertThat(Arrays.toString(quickMergeSort.getArray())).isEqualTo("[1, 0, 2, 3, 4, 6, 7, 8, 9]");
     }
 
     @Test
-    public void mergeAfterFirstStepOrderFiveElementsArrayTestTest(){
+    public void mergeAfterFirstStepOrderFiveElementsArrayTest(){
         quickMergeSort.setArrayToSort(new int[]{0,1,2,3,4,5,9,6,8,7,10});
         quickMergeSort.firstStep(6,11,0);
         assertThat(Arrays.toString(quickMergeSort.getArray())).isEqualTo("[2, 0, 1, 3, 4, 5, 6, 7, 8, 9, 10]");
     }
 
     @Test
-    public void mergeAfterFirstStepOrderMultiElementsArrayTestTest(){
+    public void mergeAfterFirstStepOrderMultiElementsArrayTest(){
         quickMergeSort.setArrayToSort(new int[]{0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,21,20,22,19,18,23,25,24,26,28,27,30,29});
         quickMergeSort.firstStep(17,31,0);
         assertThat(Arrays.toString(quickMergeSort.getArray())).isEqualTo("[3, 5, 6, 4, 1, 0, 2, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30]");
+    }
+
+    @Test
+    public void baseCompleteSortingTest(){
+        quickMergeSort.setArrayToSort(new int[]{2,0,1,9,8});
+        quickMergeSort.sort();
+        assertThat(Arrays.toString(quickMergeSort.getArray())).isEqualTo("[0, 1, 2, 8, 9]");
+    }
+
+    @Test
+    public void LongArrayCompleteSortingTest(){
+        quickMergeSort.setArrayToSort(new int[]{16,0,20,32,2,18,14,3,23,6,9,27,30,10,17,13,11,21,1,31,22,15,19,7,8,12,4,25,24,26,28,29,5});
+        quickMergeSort.sort();
+        assertThat(Arrays.toString(quickMergeSort.getArray())).isEqualTo("[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32]");
+    }
+
+    @Test
+    public void LongArrayWithRepetitionsCompleteSortingTest(){
+        quickMergeSort.setArrayToSort(new int[]{16,0,11,32,2,18,14,3,23,11,10,0,30,10,17,13,11,21,1,31,22,15,19,7,8,30,4,25,24,26,1,29,5});
+        quickMergeSort.sort();
+        assertThat(Arrays.toString(quickMergeSort.getArray())).isEqualTo("[0, 0, 1, 1, 2, 3, 4, 5, 7, 8, 10, 10, 11, 11, 11, 13, 14, 15, 16, 17, 18, 19, 21, 22, 23, 24, 25, 26, 29, 30, 30, 31, 32]");
     }
 }
