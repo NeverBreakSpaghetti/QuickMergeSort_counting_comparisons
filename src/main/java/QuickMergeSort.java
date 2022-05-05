@@ -10,8 +10,7 @@ public class QuickMergeSort {
             int end = arrayToSort.length;
             while (begin < end) {
                 int pivotPosition = partition(begin, end);
-                int nElements = end - begin;
-                if (pivotPosition < nElements/2) {
+                if (pivotPosition < (end + begin)/2) {
                     firstStep(begin, pivotPosition, pivotPosition+1);
                     begin = pivotPosition + 1;
                 } else {
@@ -29,7 +28,7 @@ public class QuickMergeSort {
         if ( (arrayToSort != null) && (nElements > 1) ) {
             int pivot= arrayToSort[pivotPosition];
             int pointerLeft = pivotPosition;
-            int pointerRight = end;;
+            int pointerRight = end;
             while ( pointerLeft < pointerRight ) {
                 /* scorro l'array da destra in cerca di un elemento inferiore o uguale al pivot  */
                 do {
@@ -106,7 +105,7 @@ public class QuickMergeSort {
     public void mergeSort(int begin, int end, int target) {
         int nElements = end - begin;
         if( nElements == 1 )
-            swap(begin,target);
+            swap(begin, target);
         else{
             int halfNElements = nElements/2;
             mergeSort(begin + halfNElements,end,target + halfNElements);
