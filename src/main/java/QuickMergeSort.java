@@ -1,7 +1,9 @@
 public class QuickMergeSort {
     private int[] arrayToSort;
+    private int keysComparisonsNumber;
     public QuickMergeSort(int[] arrayToSort) {
         this.arrayToSort =arrayToSort;
+        keysComparisonsNumber=0;
     }
 
     public int[] sort() {
@@ -34,10 +36,12 @@ public class QuickMergeSort {
                 /* scorro l'array da destra in cerca di un elemento inferiore o uguale al pivot  */
                 do {
                     pointerRight--;
+                    keysComparisonsNumber++;
                 } while ( arrayToSort[pointerRight] > pivot );
                 /* scorro l'array da sinistra in cerca di un elemento maggiore del pivot  */
                 do {
                     pointerLeft++;
+                    keysComparisonsNumber++;
                 } while ( (pointerLeft < end) && (arrayToSort[pointerLeft] <= pivot) );
                 /* se non ho controllato tutti gli elementi, scambia quelli puntati dai due puntatori */
                 if ( pointerLeft < pointerRight ) {
@@ -77,9 +81,11 @@ public class QuickMergeSort {
         while ( (i1 != end1) && (i2 != endTarget) ) {
             int positionToPlace;
             if ( arrayToSort[i1] < arrayToSort[i2] ) {
+                keysComparisonsNumber++;
                 positionToPlace = i1;
                 i1++;
             } else {
+                keysComparisonsNumber++;
                 positionToPlace = i2;
                 i2++;
             }
@@ -130,6 +136,6 @@ public class QuickMergeSort {
     }
 
     public int getKeysComparisonsNumber() {
-        return 0;
+        return keysComparisonsNumber;
     }
 }
