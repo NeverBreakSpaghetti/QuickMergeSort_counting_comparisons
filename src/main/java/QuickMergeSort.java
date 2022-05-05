@@ -10,7 +10,8 @@ public class QuickMergeSort {
             int end = arrayToSort.length;
             while (begin < end) {
                 int pivotPosition = partition(begin, end);
-                if (pivotPosition < (end + begin)/2) {
+                int middlePosition = (begin + end)/2;
+                if (pivotPosition < middlePosition) {
                     firstStep(begin, pivotPosition, pivotPosition+1);
                     begin = pivotPosition + 1;
                 } else {
