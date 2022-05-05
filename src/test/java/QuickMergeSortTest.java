@@ -251,4 +251,11 @@ public class QuickMergeSortTest {
         quickMergeSort.firstStep(5,9,0);
         assertThat(Arrays.toString(quickMergeSort.getArray())).isEqualTo("[1, 0, 2, 3, 4, 6, 7, 8, 9]");
     }
+
+    @Test
+    public void mergeAfterFirstStepOrderFiveElementsArrayTestTest(){
+        quickMergeSort.setArrayToSort(new int[]{0,1,2,3,4,5,9,6,8,7,10});
+        quickMergeSort.firstStep(6,11,0);
+        assertThat(Arrays.toString(quickMergeSort.getArray())).isEqualTo("[2, 0, 1, 3, 4, 5, 6, 7, 8, 9, 10]");
+    }
 }
