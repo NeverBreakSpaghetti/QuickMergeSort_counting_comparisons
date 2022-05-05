@@ -186,13 +186,6 @@ public class QuickMergeSortTest {
     }
 
     @Test
-    public void mergeSortRecursionArrayResultTest(){ /* Cambierà quanto introdurrò il merge nel corpo del mergesort */
-        quickMergeSort.setArrayToSort(new int[]{0,1,2,3,4,5,6,7,8,9});
-        quickMergeSort.mergeSort(5,10,0);
-        assertThat(Arrays.toString(quickMergeSort.getArray())).isEqualTo("[0, 1, 2, 3, 9, 7, 5, 4, 6, 8]");
-    }
-
-    @Test
     public void firstStepMergeSortTest(){
         doCallRealMethod().when(mockQuickMergeSort).setArrayToSort(any());
         doCallRealMethod().when(mockQuickMergeSort).firstStep(anyInt(),anyInt(),anyInt());
@@ -224,5 +217,52 @@ public class QuickMergeSortTest {
         mockQuickMergeSort.setArrayToSort(new int[]{0,1,2,3,4,5,6,7,8});
         mockQuickMergeSort.firstStep(5,9,0);
         verify(mockQuickMergeSort, times(6)).mergeSort(anyInt(),anyInt(),anyInt());
+    }
+
+    @Test
+    public void mergeAfterFirstStepTest(){
+        doCallRealMethod().when(mockQuickMergeSort).setArrayToSort(any());
+        doCallRealMethod().when(mockQuickMergeSort).mergeSort(anyInt(),anyInt(),anyInt());
+        doCallRealMethod().when(mockQuickMergeSort).firstStep(anyInt(),anyInt(),anyInt());
+        doCallRealMethod().when(mockQuickMergeSort).merge(anyInt(),anyInt(),anyInt(),anyInt());
+
+        mockQuickMergeSort.setArrayToSort(new int[]{0,1,9,8});
+        mockQuickMergeSort.firstStep(2,4,0);
+        verify(mockQuickMergeSort).merge(0,1,2,4);
+    }
+
+    @Test
+    public void mergeAfterFirstStepOrderArrayTest(){
+        quickMergeSort.setArrayToSort(new int[]{0,1,9,8});
+        quickMergeSort.firstStep(2,4,0);
+        assertThat(Arrays.toString(quickMergeSort.getArray())).isEqualTo("[0, 1, 8, 9]");
+    }
+
+    @Test
+    public void mergeAfterFirstStepOrderThreeElementsArrayTest(){
+        quickMergeSort.setArrayToSort(new int[]{0,1,2,9,7,8});
+        quickMergeSort.firstStep(3,6,0);
+        assertThat(Arrays.toString(quickMergeSort.getArray())).isEqualTo("[1, 0, 2, 7, 8, 9]");
+    }
+
+    @Test
+    public void mergeAfterFirstStepOrderFourElementsArrayTestTest(){
+        quickMergeSort.setArrayToSort(new int[]{0,1,2,3,4,9,6,8,7});
+        quickMergeSort.firstStep(5,9,0);
+        assertThat(Arrays.toString(quickMergeSort.getArray())).isEqualTo("[1, 0, 2, 3, 4, 6, 7, 8, 9]");
+    }
+
+    @Test
+    public void mergeAfterFirstStepOrderFiveElementsArrayTestTest(){
+        quickMergeSort.setArrayToSort(new int[]{0,1,2,3,4,5,9,6,8,7,10});
+        quickMergeSort.firstStep(6,11,0);
+        assertThat(Arrays.toString(quickMergeSort.getArray())).isEqualTo("[2, 0, 1, 3, 4, 5, 6, 7, 8, 9, 10]");
+    }
+
+    @Test
+    public void mergeAfterFirstStepOrderMultiElementsArrayTestTest(){
+        quickMergeSort.setArrayToSort(new int[]{0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,21,20,22,19,18,23,25,24,26,28,27,30,29});
+        quickMergeSort.firstStep(17,31,0);
+        assertThat(Arrays.toString(quickMergeSort.getArray())).isEqualTo("[3, 5, 6, 4, 1, 0, 2, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30]");
     }
 }

@@ -96,6 +96,10 @@ public class QuickMergeSort {
             int halfNElements = nElements/2;
             mergeSort(begin+halfNElements,end,target+halfNElements);
             mergeSort(begin,begin+halfNElements,begin+halfNElements);
+            int end1 = begin+nElements;
+            if(nElements%2 == 1)
+                end1 = end1-1;
+            merge(begin+halfNElements,end1,target,target+nElements);
         }
     }
 
@@ -106,6 +110,7 @@ public class QuickMergeSort {
             int rightHalfElements = nElements - leftHalfElements;
             mergeSort(begin + leftHalfElements, end, target);
             mergeSort(begin, begin + leftHalfElements, begin + rightHalfElements);
+            merge(target,target+rightHalfElements,begin,end);
         }
     }
 }
