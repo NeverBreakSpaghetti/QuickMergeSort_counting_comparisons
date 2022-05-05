@@ -60,13 +60,13 @@ public class QuickMergeSortTest {
     @Test
     public void positionPivotArrayPartitionTest(){
         quickMergeSort.setArrayToSort(new int[]{2,3,1,2});
-        assertThat(quickMergeSort.partition()).isEqualTo(2);
+        assertThat(quickMergeSort.partition(0,quickMergeSort.getArray().length)).isEqualTo(2);
     }
 
     @Test
     public void arrayPartitionTest(){
         quickMergeSort.setArrayToSort(new int[]{2,3,1,5,2});
-        quickMergeSort.partition();
+        quickMergeSort.partition(0,quickMergeSort.getArray().length);
         assertThat(Arrays.toString(quickMergeSort.getArray())).isEqualTo("[1, 2, 2, 5, 3]");
     }
 

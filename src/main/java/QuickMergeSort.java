@@ -5,16 +5,29 @@ public class QuickMergeSort {
     }
 
     public int[] sort() {
-        partition();
+        if (arrayToSort != null) {
+            int begin = 0;
+            int end = arrayToSort.length;
+            while (begin < end) {
+                int pivotPosition = partition(begin, end);
+                if (pivotPosition < (end - begin) / 2) {
+                    firstStep(begin, pivotPosition, pivotPosition + 1);
+                    begin = pivotPosition + 1;
+                } else {
+                    firstStep(pivotPosition + 1, end, begin);
+                    end = pivotPosition;
+                }
+            }
+        }
         return arrayToSort;
     }
 
-    int partition() {
-        int pivotPosition=0;
-        if ( (arrayToSort !=null) && (arrayToSort.length>1) ) {
+    int partition(int begin, int end) {
+        int pivotPosition=begin;
+        if ( (arrayToSort !=null) && (end-begin>1) ) {
             int pivot= arrayToSort[pivotPosition];
             int pointerLeft=pivotPosition;
-            int pointerRight= arrayToSort.length;;
+            int pointerRight= end;;
             while (pointerLeft<pointerRight) {
                 /* scorro l'array da destra in cerca di un elemento inferiore o uguale al pivot  */
                 do {
@@ -23,7 +36,7 @@ public class QuickMergeSort {
                 /* scorro l'array da sinistra in cerca di un elemento maggiore del pivot  */
                 do {
                     pointerLeft++;
-                } while ( (pointerLeft< arrayToSort.length) && (arrayToSort[pointerLeft] <= pivot) );
+                } while ( (pointerLeft< end) && (arrayToSort[pointerLeft] <= pivot) );
                 /* se non ho controllato tutti gli elementi, scambia quelli puntati dai due puntatori */
                 if (pointerLeft < pointerRight) {
                     swap(pointerLeft, pointerRight);
