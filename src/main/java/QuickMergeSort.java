@@ -128,4 +128,8 @@ public class QuickMergeSort {
             merge(target,target + rightHalfElements, begin, end);
         }
     }
+
+    public int getKeysComparisonsNumber() {
+        return 0;
+    }
 }
