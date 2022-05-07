@@ -300,4 +300,11 @@ public class QuickMergeSortTest {
         quickMergeSort.sort();
         assertThat(quickMergeSort.getKeysComparisonsNumber()).isEqualTo(15);
     }
+
+    @Test
+    public void countComparisonsOrderedArrayTest(){
+        quickMergeSort.setArrayToSort(new int[]{0,1,2,3,4,5});
+        quickMergeSort.sort();
+        assertThat(quickMergeSort.getKeysComparisonsNumber()).isEqualTo(25);
+    }
 }
