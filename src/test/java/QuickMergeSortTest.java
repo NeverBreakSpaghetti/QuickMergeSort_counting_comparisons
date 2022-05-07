@@ -307,4 +307,11 @@ public class QuickMergeSortTest {
         quickMergeSort.sort();
         assertThat(quickMergeSort.getKeysComparisonsNumber()).isEqualTo(25);
     }
+
+    @Test
+    public void contComparsionsEmptyArrayTest(){
+        quickMergeSort.setArrayToSort(new int[] {});
+        quickMergeSort.sort();
+        assertThat(quickMergeSort.getKeysComparisonsNumber()).isEqualTo(0);
+    }
 }
