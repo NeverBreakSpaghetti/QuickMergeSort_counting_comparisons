@@ -309,14 +309,14 @@ public class QuickMergeSortTest {
     }
 
     @Test
-    public void contComparsionsEmptyArrayTest(){
+    public void contComparisonsEmptyArrayTest(){
         quickMergeSort.setArrayToSort(new int[] {});
         quickMergeSort.sort();
         assertThat(quickMergeSort.getKeysComparisonsNumber()).isEqualTo(0);
     }
 
     @Test
-    public void contComparsionsNullArrayTest(){
+    public void contComparisonsNullArrayTest(){
         quickMergeSort.setArrayToSort(null);
         quickMergeSort.sort();
         assertThat(quickMergeSort.getKeysComparisonsNumber()).isEqualTo(0);
