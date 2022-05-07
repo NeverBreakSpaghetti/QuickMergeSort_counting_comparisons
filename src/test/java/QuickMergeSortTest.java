@@ -314,4 +314,11 @@ public class QuickMergeSortTest {
         quickMergeSort.sort();
         assertThat(quickMergeSort.getKeysComparisonsNumber()).isEqualTo(0);
     }
+
+    @Test
+    public void contComparsionsNullArrayTest(){
+        quickMergeSort.setArrayToSort(null);
+        quickMergeSort.sort();
+        assertThat(quickMergeSort.getKeysComparisonsNumber()).isEqualTo(0);
+    }
 }
