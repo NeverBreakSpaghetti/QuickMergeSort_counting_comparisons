@@ -35,4 +35,7 @@ public class ComparisonTester {
         else
             this.nElements=nElements;
     }
+
+    public void setNArrays(int nArrays) {
+    }
 }

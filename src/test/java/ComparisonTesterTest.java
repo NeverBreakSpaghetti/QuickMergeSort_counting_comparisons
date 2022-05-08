@@ -38,4 +38,19 @@ public class ComparisonTesterTest {
         assertEquals(resultComparison.length, 1);
         assertThat(resultComparison[0]).isGreaterThan(nElements);
     }
+
+    @Test
+    public void comparisonsMoreArraysSortTest(){
+        int nElements=10000;
+        int nArrays = 2;
+        comparisonTester.setNElements(nElements);
+        comparisonTester.setNArrays(nArrays);
+
+        int[] resultComparison = comparisonTester.countComparisonsSort();
+        assertEquals(resultComparison.length, 2);
+
+        for (int i=0; i<nArrays; i++)
+            assertThat(resultComparison[i]).isGreaterThan(nElements);
+
+    }
 }
