@@ -40,7 +40,7 @@ public class ComparisonTesterTest {
     }
 
     @Test
-    public void comparisonsMoreArraysSortTest(){
+    public void comparisonsTwoArraysSortTest(){
         int nElements=10000;
         int nArrays = 2;
         comparisonTester.setNElements(nElements);

@@ -19,12 +19,13 @@ public class ComparisonTester {
         QuickMergeSort quickMergeSort=new QuickMergeSort(null);
         Random random = new Random();
 
-        for (int i=0; i<nElements;i++) {
-            array[i] = random.nextInt();
+        for (int j=0; j<nArrays; j++) {
+            for (int i = 0; i < nElements; i++)
+                array[i] = random.nextInt();
+            quickMergeSort.setArrayToSort(array);
+            quickMergeSort.sort();
+            resultNumbersComparisons[j] = quickMergeSort.getKeysComparisonsNumber();
         }
-        quickMergeSort.setArrayToSort(array);
-        quickMergeSort.sort();
-        resultNumbersComparisons[0] = quickMergeSort.getKeysComparisonsNumber();
 
         return resultNumbersComparisons;
     }
@@ -37,5 +38,6 @@ public class ComparisonTester {
     }
 
     public void setNArrays(int nArrays) {
+        this.nArrays=nArrays;
     }
 }
