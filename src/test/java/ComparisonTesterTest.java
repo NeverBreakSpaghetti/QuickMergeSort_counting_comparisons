@@ -28,4 +28,10 @@ public class ComparisonTesterTest {
         assertThrows(IllegalArgumentException.class, () -> new ComparisonTester(-3));
         assertThrows(IllegalArgumentException.class, () -> comparisonTester.setNElements(-5));
     }
+
+    @Test
+    public void comparisonsMultyElementsArraySortTest(){
+        comparisonTester.setNElements(10000);
+        assertThat(comparisonTester.countComparisonsSort()).isGreaterThan(10000);
+    }
 }
