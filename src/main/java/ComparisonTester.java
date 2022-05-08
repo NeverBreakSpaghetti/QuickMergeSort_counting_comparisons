@@ -20,4 +20,8 @@ public class ComparisonTester {
         quickMergeSort.sort();
         return quickMergeSort.getKeysComparisonsNumber();
     }
+
+    public void setNElements(int nElements) {
+        this.nElements=nElements;
+    }
 }

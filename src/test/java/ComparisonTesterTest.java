@@ -4,21 +4,21 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 public class ComparisonTesterTest {
 
+    ComparisonTester comparisonTester = new ComparisonTester(0);;
     @Test
     public void comparisonsZeroElementsArraySortTest(){
-        ComparisonTester comparisonTester = new ComparisonTester(0);
         assertThat(comparisonTester.countComparisonsSort()).isEqualTo(0);
     }
 
     @Test
     public void comparisonsOneElementArraySortTest(){
-        ComparisonTester comparisonTester = new ComparisonTester(1);
+        comparisonTester.setNElements(1);
         assertThat(comparisonTester.countComparisonsSort()).isEqualTo(0);
     }
 
     @Test
     public void comparisonsTwoElementsArraySortTest(){
-        ComparisonTester comparisonTester = new ComparisonTester(2);
+        comparisonTester.setNElements(2);
         assertThat(comparisonTester.countComparisonsSort()).isEqualTo(3);
     }
 }
