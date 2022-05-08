@@ -17,7 +17,7 @@ public class ComparisonTesterTest {
     }
 
     @Test
-    public void comparisonsTwoElementArraySortTest(){
+    public void comparisonsTwoElementsArraySortTest(){
         ComparisonTester comparisonTester = new ComparisonTester(2);
         assertThat(comparisonTester.countComparisonsSort()).isEqualTo(3);
     }
