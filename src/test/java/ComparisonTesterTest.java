@@ -15,4 +15,10 @@ public class ComparisonTesterTest {
         ComparisonTester comparisonTester = new ComparisonTester(1);
         assertThat(comparisonTester.countComparisonsSort()).isEqualTo(0);
     }
+
+    @Test
+    public void comparisonsTwoElementArraySortTest(){
+        ComparisonTester comparisonTester = new ComparisonTester(2);
+        assertThat(comparisonTester.countComparisonsSort()).isEqualTo(3);
+    }
 }
