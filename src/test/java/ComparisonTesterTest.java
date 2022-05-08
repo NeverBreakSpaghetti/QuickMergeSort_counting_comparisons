@@ -9,4 +9,10 @@ public class ComparisonTesterTest {
         ComparisonTester comparisonTester = new ComparisonTester(0);
         assertThat(comparisonTester.countComparisonsSort()).isEqualTo(0);
     }
+
+    @Test
+    public void comparisonsOneElementArraySortTest(){
+        ComparisonTester comparisonTester = new ComparisonTester(1);
+        assertThat(comparisonTester.countComparisonsSort()).isEqualTo(0);
+    }
 }
