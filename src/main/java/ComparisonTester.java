@@ -5,6 +5,6 @@ public class ComparisonTester {
 
 
     public int countComparisonsSort() {
-        return -1;
+        return 0;
     }
 }
