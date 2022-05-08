@@ -4,7 +4,10 @@ public class ComparisonTester {
 
     private int nElements=0;
     public ComparisonTester(int nElements) {
-        this.nElements = nElements;
+        if (nElements < 0)
+            throw new IllegalArgumentException("Negative number of elements not allowed");
+        else
+            this.nElements = nElements;
     }
 
 
@@ -22,6 +25,9 @@ public class ComparisonTester {
     }
 
     public void setNElements(int nElements) {
-        this.nElements=nElements;
+        if (nElements < 0)
+            throw new IllegalArgumentException("Negative number of elements not allowed");
+        else
+            this.nElements=nElements;
     }
 }
