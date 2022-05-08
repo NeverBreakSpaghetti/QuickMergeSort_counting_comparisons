@@ -2,16 +2,19 @@ import java.util.Random;
 
 public class ComparisonTester {
 
-    private int nElements=0;
+    public static final String NEGATIVE_NUMBER_ELEMENT_EXCEPTION = "Negative number of elements not allowed";
+    private int nElements = 0;
+    private int nArrays = 1;
     public ComparisonTester(int nElements) {
         if (nElements < 0)
-            throw new IllegalArgumentException("Negative number of elements not allowed");
+            throw new IllegalArgumentException(NEGATIVE_NUMBER_ELEMENT_EXCEPTION);
         else
             this.nElements = nElements;
     }
 
 
-    public int countComparisonsSort() {
+    public int[] countComparisonsSort() {
+        int[] resultNumbersComparisons = new int[nArrays];
         int[] array = new int[nElements];
         QuickMergeSort quickMergeSort=new QuickMergeSort(null);
         Random random = new Random();
@@ -21,12 +24,14 @@ public class ComparisonTester {
         }
         quickMergeSort.setArrayToSort(array);
         quickMergeSort.sort();
-        return quickMergeSort.getKeysComparisonsNumber();
+        resultNumbersComparisons[0] = quickMergeSort.getKeysComparisonsNumber();
+
+        return resultNumbersComparisons;
     }
 
     public void setNElements(int nElements) {
         if (nElements < 0)
-            throw new IllegalArgumentException("Negative number of elements not allowed");
+            throw new IllegalArgumentException(NEGATIVE_NUMBER_ELEMENT_EXCEPTION);
         else
             this.nElements=nElements;
     }

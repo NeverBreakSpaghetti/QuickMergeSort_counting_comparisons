@@ -1,26 +1,27 @@
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class ComparisonTesterTest {
 
-    ComparisonTester comparisonTester = new ComparisonTester(0);;
+    ComparisonTester comparisonTester = new ComparisonTester(0);
     @Test
     public void comparisonsZeroElementsArraySortTest(){
-        assertThat(comparisonTester.countComparisonsSort()).isEqualTo(0);
+        assertThat(comparisonTester.countComparisonsSort()[0]).isEqualTo(0);
     }
 
     @Test
     public void comparisonsOneElementArraySortTest(){
         comparisonTester.setNElements(1);
-        assertThat(comparisonTester.countComparisonsSort()).isEqualTo(0);
+        assertThat(comparisonTester.countComparisonsSort()[0]).isEqualTo(0);
     }
 
     @Test
     public void comparisonsTwoElementsArraySortTest(){
         comparisonTester.setNElements(2);
-        assertThat(comparisonTester.countComparisonsSort()).isEqualTo(3);
+        assertThat(comparisonTester.countComparisonsSort()[0]).isEqualTo(3);
     }
 
     @Test
@@ -30,8 +31,11 @@ public class ComparisonTesterTest {
     }
 
     @Test
-    public void comparisonsMultyElementsArraySortTest(){
-        comparisonTester.setNElements(10000);
-        assertThat(comparisonTester.countComparisonsSort()).isGreaterThan(10000);
+    public void comparisonsMultiElementsArraySortTest(){
+        int nElements=10000;
+        comparisonTester.setNElements(nElements);
+        int[] resultComparison = comparisonTester.countComparisonsSort();
+        assertEquals(resultComparison.length, 1);
+        assertThat(resultComparison[0]).isGreaterThan(nElements);
     }
 }
