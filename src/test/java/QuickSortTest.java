@@ -5,34 +5,34 @@ import java.util.Arrays;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 public class QuickSortTest {
+    QuickSort quickSort = new QuickSort(null);
 
     @Test
     public void nullArraySortTest(){
-        QuickSort quickSort = new QuickSort(null);
         assertThat(Arrays.toString(quickSort.sort())).isEqualTo("null");
     }
 
     @Test
     public void EmptyArraySortTest(){
-        QuickSort quickSort = new QuickSort(new int[] {});
+        quickSort.setArrayToSort(new int[] {});
         assertThat(Arrays.toString(quickSort.sort())).isEqualTo("[]");
     }
 
     @Test
     public void oneElementArraySortTest(){
-        QuickSort quickSort = new QuickSort(new int[] {1});
+        quickSort.setArrayToSort(new int[] {1});
         assertThat(Arrays.toString(quickSort.sort())).isEqualTo("[1]");
     }
 
     @Test
     public void twoElementArraySortedSortTest(){
-        QuickSort quickSort = new QuickSort(new int[] {1,2});
+        quickSort.setArrayToSort(new int[] {1,2});
         assertThat(Arrays.toString(quickSort.sort())).isEqualTo("[1, 2]");
     }
 
     @Test
     public void twoElementArraySortTest(){
-        QuickSort quickSort = new QuickSort(new int[] {2,1});
+        quickSort.setArrayToSort(new int[] {2,1});
         assertThat(Arrays.toString(quickSort.sort())).isEqualTo("[1, 2]");
     }
 }

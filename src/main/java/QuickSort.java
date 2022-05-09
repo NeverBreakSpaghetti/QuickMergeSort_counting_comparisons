@@ -13,4 +13,8 @@ public class QuickSort {
         }
         return arrayToSort;
     }
+
+    public void setArrayToSort(int[] arrayToSort) {
+        this.arrayToSort = arrayToSort;
+    }
 }
