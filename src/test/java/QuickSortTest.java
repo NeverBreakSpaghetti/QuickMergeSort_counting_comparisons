@@ -11,4 +11,10 @@ public class QuickSortTest {
         QuickSort quickSort = new QuickSort(null);
         assertThat(Arrays.toString(quickSort.sort())).isEqualTo("null");
     }
+
+    @Test
+    public void oneElementArraySortTest(){
+        QuickSort quickSort = new QuickSort(new int[] {});
+        assertThat(Arrays.toString(quickSort.sort())).isEqualTo("[]");
+    }
 }
