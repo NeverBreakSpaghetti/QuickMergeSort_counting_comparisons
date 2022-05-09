@@ -23,6 +23,15 @@ public class QuickSort {
     }
 
     public int partition(int i, int i1) {
-        return 0;
+        int pivot=i;
+        int temp;
+        if(arrayToSort!= null && arrayToSort.length>1 && arrayToSort[pivot]>arrayToSort[1]) {
+            temp = arrayToSort[pivot];
+            arrayToSort[pivot] = arrayToSort[1];
+            arrayToSort[1] = temp;
+            pivot=1;
+        }
+
+        return pivot;
     }
 }
