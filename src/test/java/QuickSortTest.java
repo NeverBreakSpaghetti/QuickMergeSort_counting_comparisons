@@ -42,4 +42,11 @@ public class QuickSortTest {
         assertThat(quickSort.partition(0,2)).isEqualTo(0);
         assertThat(quickSort.getArray()).isNull();
     }
+
+    @Test
+    public void oneElementArrayPartitionTest(){
+        quickSort.setArrayToSort(new int[] {1});
+        assertThat(quickSort.partition(0,quickSort.getArray().length)).isEqualTo(0);
+        assertThat(Arrays.toString(quickSort.getArray())).isEqualTo("[1]");
+    }
 }
