@@ -104,4 +104,11 @@ public class QuickSortTest {
         quickSort.sort();
         assertThat(Arrays.toString(quickSort.getArray())).isEqualTo("[0, 1, 2, 4, 5]");
     }
+
+    @Test
+    public void manyElementsArrayQuickSortTest(){
+        quickSort.setArrayToSort(new int[]{16,0,20,32,2,18,14,3,23,6,9,27,30,10,17,13,11,21,1,31,22,15,19,7,8,12,4,25,24,26,28,29,5});
+        quickSort.sort();
+        assertThat(Arrays.toString(quickSort.getArray())).isEqualTo("[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32]");
+    }
 }
