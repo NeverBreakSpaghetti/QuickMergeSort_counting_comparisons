@@ -23,15 +23,31 @@ public class QuickSort {
     }
 
     public int partition(int begin, int end) {
-        int pivot=begin;
+        int pivotPosition=begin;
+        int pivot=0;
         int temp;
-        if(arrayToSort!= null && arrayToSort.length>1 && arrayToSort[pivot]>arrayToSort[1]) {
-            temp = arrayToSort[pivot];
-            arrayToSort[pivot] = arrayToSort[1];
-            arrayToSort[1] = temp;
-            pivot=1;
+        if(arrayToSort!= null && arrayToSort.length>1) {
+            pivot= arrayToSort[pivotPosition];
+            int leftPointer = pivotPosition;
+            int righPointer = end;
+            while ( leftPointer < righPointer ) {
+                do
+                    righPointer--;
+                while ( arrayToSort[righPointer] > pivot );
+                do
+                    leftPointer++;
+                while ( (leftPointer < end) && (arrayToSort[leftPointer] <= pivot) );
+                if ( leftPointer < righPointer ) {
+                    temp = arrayToSort[leftPointer];
+                    arrayToSort[leftPointer] = arrayToSort[righPointer];
+                    arrayToSort[righPointer] = temp;
+                }
+            }
+            temp = arrayToSort[pivotPosition];
+            arrayToSort[pivotPosition] = arrayToSort[righPointer];
+            arrayToSort[righPointer] = temp;
+            pivotPosition = righPointer;
         }
-
-        return pivot;
+        return pivotPosition;
     }
 }
