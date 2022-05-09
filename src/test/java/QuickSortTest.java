@@ -35,4 +35,11 @@ public class QuickSortTest {
         quickSort.setArrayToSort(new int[] {2,1});
         assertThat(Arrays.toString(quickSort.sort())).isEqualTo("[1, 2]");
     }
+
+    @Test
+    public void nullArrayPartitionTest(){
+        quickSort.setArrayToSort(null);
+        assertThat(quickSort.partition(0,2)).isEqualTo(0);
+        assertThat(quickSort.getArray()).isNull();
+    }
 }

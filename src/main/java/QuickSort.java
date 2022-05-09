@@ -17,4 +17,12 @@ public class QuickSort {
     public void setArrayToSort(int[] arrayToSort) {
         this.arrayToSort = arrayToSort;
     }
+
+    public int[] getArray() {
+        return null;
+    }
+
+    public int partition(int i, int i1) {
+        return -1;
+    }
 }
