@@ -1,8 +1,10 @@
 public class QuickSort {
-    public QuickSort(Object o) {
+    private int[] arrayToSort;
+    public QuickSort(int[] arrayToSort) {
+        this.arrayToSort = arrayToSort;
     }
 
     public int[] sort() {
-        return null;
+        return arrayToSort;
     }
 }
