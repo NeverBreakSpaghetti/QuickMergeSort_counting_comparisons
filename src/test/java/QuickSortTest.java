@@ -56,4 +56,11 @@ public class QuickSortTest {
         assertThat(quickSort.partition(0,quickSort.getArray().length)).isEqualTo(1);
         assertThat(Arrays.toString(quickSort.getArray())).isEqualTo("[1, 2]");
     }
+
+    @Test
+    public void threeElementsArrayPartitionTest(){
+        quickSort.setArrayToSort(new int[] {3,1,2});
+        assertThat(quickSort.partition(0,quickSort.getArray().length)).isEqualTo(2);
+        assertThat(Arrays.toString(quickSort.getArray())).isEqualTo("[2, 1, 3]");
+    }
 }
