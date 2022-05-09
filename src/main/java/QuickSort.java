@@ -23,6 +23,6 @@ public class QuickSort {
     }
 
     public int partition(int i, int i1) {
-        return -1;
+        return 0;
     }
 }
