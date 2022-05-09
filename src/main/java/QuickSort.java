@@ -6,7 +6,7 @@ public class QuickSort {
 
     public int[] sort() {
         if(arrayToSort!= null)
-            partition(0,arrayToSort.length);
+            quickSort(0,arrayToSort.length);
         return arrayToSort;
     }
 
@@ -49,6 +49,16 @@ public class QuickSort {
         return pivotPosition;
     }
 
-    public void quickSort(int i, int length) {
+    public void quickSort(int begin, int end) {
+        while ( end-begin > 1 ){
+            int pivotPosition = partition(begin,end);
+            if( pivotPosition-begin < end-pivotPosition ){
+                quickSort(begin,pivotPosition);
+                begin = pivotPosition+1;
+            }else{
+                quickSort(pivotPosition+1,end);
+                end=pivotPosition;
+            }
+        }
     }
 }
