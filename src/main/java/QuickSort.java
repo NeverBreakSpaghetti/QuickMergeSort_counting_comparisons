@@ -22,6 +22,12 @@ public class QuickSort {
         return arrayToSort;
     }
 
+    private void swap(int position1, int position2) {
+        int temp = arrayToSort[position1];
+        arrayToSort[position1] = arrayToSort[position2];
+        arrayToSort[position2] = temp;
+    }
+
     public int partition(int begin, int end) {
         int pivotPosition=begin;
         int pivot=0;
@@ -38,14 +44,10 @@ public class QuickSort {
                     leftPointer++;
                 while ( (leftPointer < end) && (arrayToSort[leftPointer] <= pivot) );
                 if ( leftPointer < righPointer ) {
-                    temp = arrayToSort[leftPointer];
-                    arrayToSort[leftPointer] = arrayToSort[righPointer];
-                    arrayToSort[righPointer] = temp;
+                    swap(leftPointer,righPointer);
                 }
             }
-            temp = arrayToSort[pivotPosition];
-            arrayToSort[pivotPosition] = arrayToSort[righPointer];
-            arrayToSort[righPointer] = temp;
+            swap(pivotPosition,righPointer);
             pivotPosition = righPointer;
         }
         return pivotPosition;
