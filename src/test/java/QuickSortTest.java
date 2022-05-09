@@ -13,7 +13,7 @@ public class QuickSortTest {
     }
 
     @Test
-    public void oneElementArraySortTest(){
+    public void EmptyArraySortTest(){
         QuickSort quickSort = new QuickSort(new int[] {});
         assertThat(Arrays.toString(quickSort.sort())).isEqualTo("[]");
     }
