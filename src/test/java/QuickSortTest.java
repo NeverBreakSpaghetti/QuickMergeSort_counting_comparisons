@@ -17,4 +17,10 @@ public class QuickSortTest {
         QuickSort quickSort = new QuickSort(new int[] {});
         assertThat(Arrays.toString(quickSort.sort())).isEqualTo("[]");
     }
+
+    @Test
+    public void oneElementArraySortTest(){
+        QuickSort quickSort = new QuickSort(new int[] {1});
+        assertThat(Arrays.toString(quickSort.sort())).isEqualTo("[1]");
+    }
 }
