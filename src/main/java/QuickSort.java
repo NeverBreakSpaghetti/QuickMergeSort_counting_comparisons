@@ -3,6 +3,6 @@ public class QuickSort {
     }
 
     public int[] sort() {
-        return new int[]{};
+        return null;
     }
 }
