@@ -19,7 +19,7 @@ public class QuickSort {
     }
 
     public int[] getArray() {
-        return null;
+        return arrayToSort;
     }
 
     public int partition(int i, int i1) {
