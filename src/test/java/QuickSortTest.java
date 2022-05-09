@@ -3,6 +3,9 @@ import org.junit.jupiter.api.Test;
 import java.util.Arrays;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyInt;
+import static org.mockito.Mockito.*;
 
 public class QuickSortTest {
     QuickSort quickSort = new QuickSort(null);
@@ -76,5 +79,22 @@ public class QuickSortTest {
         quickSort.setArrayToSort(new int[] {2,3,1});
         quickSort.sort();
         assertThat(Arrays.toString(quickSort.getArray())).isEqualTo("[1, 2, 3]");
+    }
+
+    @Test
+    public void quickSortCallTest(){
+        QuickSort mockQuickSort = mock(QuickSort.class);
+        doCallRealMethod().when(mockQuickSort).setArrayToSort(any());
+        doCallRealMethod().when(mockQuickSort).sort();
+        doCallRealMethod().when(mockQuickSort).quickSort(anyInt(),anyInt());
+        doCallRealMethod().when(mockQuickSort).partition(anyInt(),anyInt());
+
+        mockQuickSort.setArrayToSort(new int[]{2,1,4,0,5});
+
+        mockQuickSort.sort();
+        verify(mockQuickSort).quickSort(0,5);
+        verify(mockQuickSort).quickSort(0,2);
+        verify(mockQuickSort).quickSort(0,0);
+        verify(mockQuickSort).quickSort(3,3);
     }
 }

@@ -48,4 +48,7 @@ public class QuickSort {
         }
         return pivotPosition;
     }
+
+    public void quickSort(int i, int length) {
+    }
 }
