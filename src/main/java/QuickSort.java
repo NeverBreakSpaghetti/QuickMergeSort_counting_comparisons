@@ -22,8 +22,8 @@ public class QuickSort {
         return arrayToSort;
     }
 
-    public int partition(int i, int i1) {
-        int pivot=i;
+    public int partition(int begin, int end) {
+        int pivot=begin;
         int temp;
         if(arrayToSort!= null && arrayToSort.length>1 && arrayToSort[pivot]>arrayToSort[1]) {
             temp = arrayToSort[pivot];
