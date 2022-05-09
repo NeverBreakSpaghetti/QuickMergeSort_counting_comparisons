@@ -97,4 +97,11 @@ public class QuickSortTest {
         verify(mockQuickSort).quickSort(0,0);
         verify(mockQuickSort).quickSort(3,3);
     }
+
+    @Test
+    public void fiveElementsArrayQuickSortTest(){
+        quickSort.setArrayToSort(new int[]{2,1,4,0,5});
+        quickSort.sort();
+        assertThat(Arrays.toString(quickSort.getArray())).isEqualTo("[0, 1, 2, 4, 5]");
+    }
 }
