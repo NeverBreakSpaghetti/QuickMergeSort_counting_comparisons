@@ -61,4 +61,8 @@ public class QuickSort {
             }
         }
     }
+
+    public int getKeysComparisonsNumber() {
+        return -1;
+    }
 }

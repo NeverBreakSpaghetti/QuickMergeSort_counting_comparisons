@@ -119,4 +119,11 @@ public class QuickSortTest {
         quickSort.sort();
         assertThat(Arrays.toString(quickSort.getArray())).isEqualTo("[0, 0, 1, 1, 2, 3, 4, 5, 7, 8, 10, 10, 11, 11, 11, 13, 14, 15, 16, 17, 18, 19, 21, 22, 23, 24, 25, 26, 29, 30, 30, 31, 32]");
     }
+
+    @Test
+    public void contComparisonsNullArrayTest(){
+        quickSort.setArrayToSort(null);
+        quickSort.sort();
+        assertThat(quickSort.getKeysComparisonsNumber()).isEqualTo(0);
+    }
 }
