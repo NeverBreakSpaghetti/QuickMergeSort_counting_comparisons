@@ -126,4 +126,11 @@ public class QuickSortTest {
         quickSort.sort();
         assertThat(quickSort.getKeysComparisonsNumber()).isEqualTo(0);
     }
+
+    @Test
+    public void contComparisonsEmptyArrayTest(){
+        quickSort.setArrayToSort(new int[] {});
+        quickSort.sort();
+        assertThat(quickSort.getKeysComparisonsNumber()).isEqualTo(0);
+    }
 }
