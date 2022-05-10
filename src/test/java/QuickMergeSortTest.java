@@ -291,21 +291,21 @@ public class QuickMergeSortTest {
     public void countComparisonsTest(){
         quickMergeSort.setArrayToSort(new int[]{7,2,3,9,8});
         quickMergeSort.sort();
-        assertThat(quickMergeSort.getKeysComparisonsNumber()).isEqualTo(10);
+        assertThat(quickMergeSort.getKeysComparisonsNumber()).isEqualTo(9);
     }
 
     @Test
     public void countComparisonsSixElementsArrayTest(){
         quickMergeSort.setArrayToSort(new int[]{7,2,3,9,8,5});
         quickMergeSort.sort();
-        assertThat(quickMergeSort.getKeysComparisonsNumber()).isEqualTo(15);
+        assertThat(quickMergeSort.getKeysComparisonsNumber()).isEqualTo(13);
     }
 
     @Test
     public void countComparisonsOrderedArrayTest(){
         quickMergeSort.setArrayToSort(new int[]{0,1,2,3,4,5});
         quickMergeSort.sort();
-        assertThat(quickMergeSort.getKeysComparisonsNumber()).isEqualTo(25);
+        assertThat(quickMergeSort.getKeysComparisonsNumber()).isEqualTo(20);
     }
 
     @Test
