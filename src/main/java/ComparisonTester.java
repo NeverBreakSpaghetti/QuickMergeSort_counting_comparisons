@@ -5,6 +5,7 @@ public class ComparisonTester {
     public static final String NEGATIVE_NUMBER_ELEMENT_EXCEPTION = "Negative number of elements not allowed";
     private int nElements = 0;
     private int nArrays = 1;
+    private SorterState sorterState;
     public ComparisonTester(int nElements) {
         if (nElements < 0)
             throw new IllegalArgumentException(NEGATIVE_NUMBER_ELEMENT_EXCEPTION);
@@ -42,9 +43,10 @@ public class ComparisonTester {
     }
 
     public void setState(SorterState sorterState) {
+        this.sorterState = sorterState;
     }
 
     public SorterState getState() {
-        return null;
+        return sorterState;
     }
 }
