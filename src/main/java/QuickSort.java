@@ -1,5 +1,6 @@
 public class QuickSort {
     private int[] arrayToSort;
+    private int keysComparisonsNumber;
     public QuickSort(int[] arrayToSort) {
         this.arrayToSort = arrayToSort;
     }
@@ -33,12 +34,16 @@ public class QuickSort {
             int leftPointer = pivotPosition;
             int righPointer = end;
             while ( leftPointer < righPointer ) {
-                do
+                do {
                     righPointer--;
-                while ( arrayToSort[righPointer] > pivot );
-                do
+                    keysComparisonsNumber++;
+                }while ( arrayToSort[righPointer] > pivot );
+                do {
                     leftPointer++;
-                while ( (leftPointer < end) && (arrayToSort[leftPointer] <= pivot) );
+                    keysComparisonsNumber++;
+                }while ( (leftPointer < end) && (arrayToSort[leftPointer] <= pivot) );
+                if (leftPointer>=end) // sottraggo una comparazione nel caso in cui non vennga effettuata cioè quando il puntatore sinistro sfora il l'index bound dell'array
+                    keysComparisonsNumber--;
                 if ( leftPointer < righPointer ) {
                     swap(leftPointer,righPointer);
                 }
@@ -60,5 +65,9 @@ public class QuickSort {
                 end=pivotPosition;
             }
         }
+    }
+
+    public int getKeysComparisonsNumber() {
+        return keysComparisonsNumber;
     }
 }
