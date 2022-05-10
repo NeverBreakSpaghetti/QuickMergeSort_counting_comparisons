@@ -133,4 +133,11 @@ public class QuickSortTest {
         quickSort.sort();
         assertThat(quickSort.getKeysComparisonsNumber()).isEqualTo(0);
     }
+
+    @Test
+    public void countComparisonsTest(){
+        quickSort.setArrayToSort(new int[]{7,2,3,9,8});
+        quickSort.sort();
+        assertThat(quickSort.getKeysComparisonsNumber()).isEqualTo(10);
+    }
 }
