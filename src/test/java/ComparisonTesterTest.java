@@ -66,4 +66,11 @@ public class ComparisonTesterTest {
         for (int i=0; i<nArrays; i++)
             assertThat(resultComparison[i]).isGreaterThan(nElements);
     }
+
+    @Test
+    public void setSorterStateTest(){
+        SorterState sorterState = new QuickMergeSort();
+        comparisonTester.setState(sorterState);
+        assertThat(comparisonTester.getState()).isInstanceOf(QuickMergeSort.class);
+    }
 }

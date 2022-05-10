@@ -40,4 +40,11 @@ public class ComparisonTester {
     public void setNArrays(int nArrays) {
         this.nArrays=nArrays;
     }
+
+    public void setState(SorterState sorterState) {
+    }
+
+    public SorterState getState() {
+        return null;
+    }
 }
