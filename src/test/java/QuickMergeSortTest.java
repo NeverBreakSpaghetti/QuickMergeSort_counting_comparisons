@@ -316,7 +316,7 @@ public class QuickMergeSortTest {
     }
 
     @Test
-    public void conutComparisonsNullArrayTest(){
+    public void countComparisonsNullArrayTest(){
         quickMergeSort.setArrayToSort(null);
         quickMergeSort.sort();
         assertThat(quickMergeSort.getKeysComparisonsNumber()).isEqualTo(0);
