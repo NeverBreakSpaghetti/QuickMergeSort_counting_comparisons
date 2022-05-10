@@ -73,4 +73,11 @@ public class ComparisonTesterTest {
         comparisonTester.setState(sorterState);
         assertThat(comparisonTester.getState()).isInstanceOf(QuickMergeSort.class);
     }
+
+    @Test
+    public void setQuickSortAsSorterStateTest(){
+        SorterState sorterState = new QuickSort();
+        comparisonTester.setState(sorterState);
+        assertThat(comparisonTester.getState()).isInstanceOf(QuickSort.class);
+    }
 }
