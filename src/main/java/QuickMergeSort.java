@@ -144,4 +144,9 @@ public class QuickMergeSort implements SorterState {
     public int getKeysComparisonsNumber() {
         return keysComparisonsNumber;
     }
+
+    @Override
+    public int[] sort(int[] ints) {
+        return null;
+    }
 }

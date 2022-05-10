@@ -321,4 +321,10 @@ public class QuickMergeSortTest {
         quickMergeSort.sort();
         assertThat(quickMergeSort.getKeysComparisonsNumber()).isEqualTo(0);
     }
+
+    @Test
+    public void SorterStateSortTest(){
+        SorterState sorterState = new QuickMergeSort();
+        assertThat(Arrays.toString(sorterState.sort(new int[]{3,2,1}))).isEqualTo("[1, 2, 3]");
+    }
 }
