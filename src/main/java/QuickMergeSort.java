@@ -43,6 +43,8 @@ public class QuickMergeSort {
                     pointerLeft++;
                     keysComparisonsNumber++;
                 } while ( (pointerLeft < end) && (arrayToSort[pointerLeft] <= pivot) );
+                if (pointerLeft < end)
+                    keysComparisonsNumber--;
                 /* se non ho controllato tutti gli elementi, scambia quelli puntati dai due puntatori */
                 if ( pointerLeft < pointerRight ) {
                     swap(pointerLeft, pointerRight);
