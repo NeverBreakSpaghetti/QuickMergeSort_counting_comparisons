@@ -140,4 +140,10 @@ public class QuickSortTest {
         quickSort.sort();
         assertThat(quickSort.getKeysComparisonsNumber()).isEqualTo(10);
     }
+
+    @Test
+    public void SorterStateSortTest(){
+        SorterState sorterState = new QuickSort();
+        assertThat(Arrays.toString(sorterState.sort(new int[]{3,2,1}))).isEqualTo("[1, 2, 3]");
+    }
 }
