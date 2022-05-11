@@ -15,6 +15,7 @@ public class QuickSort implements SorterState {
     }
 
     public void setArrayToSort(int[] arrayToSort) {
+        keysComparisonsNumber=0;
         this.arrayToSort = arrayToSort;
     }
 
