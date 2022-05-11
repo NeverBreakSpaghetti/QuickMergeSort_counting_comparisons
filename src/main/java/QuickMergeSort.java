@@ -69,6 +69,7 @@ public class QuickMergeSort implements SorterState {
     }
 
     public void setArrayToSort(int[] newArrayToSort) {
+        keysComparisonsNumber=0;
         this.arrayToSort = newArrayToSort;
     }
 
