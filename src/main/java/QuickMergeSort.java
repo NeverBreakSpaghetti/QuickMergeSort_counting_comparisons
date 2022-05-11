@@ -1,9 +1,13 @@
-public class QuickMergeSort {
+public class QuickMergeSort implements SorterState {
     private int[] arrayToSort;
     private int keysComparisonsNumber;
     public QuickMergeSort(int[] arrayToSort) {
         this.arrayToSort =arrayToSort;
         keysComparisonsNumber=0;
+    }
+
+    public QuickMergeSort() {
+
     }
 
     public int[] sort() {
@@ -65,6 +69,7 @@ public class QuickMergeSort {
     }
 
     public void setArrayToSort(int[] newArrayToSort) {
+        keysComparisonsNumber=0;
         this.arrayToSort = newArrayToSort;
     }
 
@@ -139,5 +144,11 @@ public class QuickMergeSort {
 
     public int getKeysComparisonsNumber() {
         return keysComparisonsNumber;
+    }
+
+    @Override
+    public int[] sort(int[] arrayToSort) {
+        setArrayToSort(arrayToSort);
+        return sort();
     }
 }

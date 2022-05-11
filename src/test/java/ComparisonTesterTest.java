@@ -6,7 +6,10 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class ComparisonTesterTest {
 
-    ComparisonTester comparisonTester = new ComparisonTester(0);
+    ComparisonTester comparisonTester = new ComparisonTester(new QuickMergeSort(),0);
+    int nElements;
+    int nArrays;
+    SorterState sorterState;
     @Test
     public void comparisonsZeroElementsArraySortTest(){
         assertThat(comparisonTester.countComparisonsSort()[0]).isEqualTo(0);
@@ -26,13 +29,13 @@ public class ComparisonTesterTest {
 
     @Test
     public void comparisonsNegativeNumberElementsArraySortTest(){
-        assertThrows(IllegalArgumentException.class, () -> new ComparisonTester(-3));
+        assertThrows(IllegalArgumentException.class, () -> new ComparisonTester(new QuickMergeSort(), -3));
         assertThrows(IllegalArgumentException.class, () -> comparisonTester.setNElements(-5));
     }
 
     @Test
     public void comparisonsMultiElementsArraySortTest(){
-        int nElements=10000;
+        nElements=10000;
         comparisonTester.setNElements(nElements);
         int[] resultComparison = comparisonTester.countComparisonsSort();
         assertEquals(resultComparison.length, 1);
@@ -41,8 +44,8 @@ public class ComparisonTesterTest {
 
     @Test
     public void comparisonsTwoArraysSortTest(){
-        int nElements=10000;
-        int nArrays = 2;
+        nElements=10000;
+        nArrays = 2;
         comparisonTester.setNElements(nElements);
         comparisonTester.setNArrays(nArrays);
 
@@ -55,8 +58,8 @@ public class ComparisonTesterTest {
 
     @Test
     public void comparisonsMultiArraysSortTest(){
-        int nElements = 10000;
-        int nArrays = 1000;
+        nElements = 10000;
+        nArrays = 1000;
         comparisonTester.setNElements(nElements);
         comparisonTester.setNArrays(nArrays);
 
@@ -65,5 +68,49 @@ public class ComparisonTesterTest {
 
         for (int i=0; i<nArrays; i++)
             assertThat(resultComparison[i]).isGreaterThan(nElements);
+    }
+
+    @Test
+    public void setQuickMergeSortAsSorterStateTest(){
+        sorterState = new QuickMergeSort();
+        comparisonTester.setState(sorterState);
+        assertThat(comparisonTester.getState()).isInstanceOf(QuickMergeSort.class);
+    }
+
+    @Test
+    public void setQuickSortAsSorterStateTest(){
+        sorterState = new QuickSort();
+        comparisonTester.setState(sorterState);
+        assertThat(comparisonTester.getState()).isInstanceOf(QuickSort.class);
+    }
+
+    @Test
+    public void resetKeyComparisonsNumberEveryIterationQuickMergeSortTest(){
+        nElements = 2;
+        nArrays = 2;
+        comparisonTester.setNElements(nElements);
+        comparisonTester.setNArrays(nArrays);
+
+        sorterState = new QuickMergeSort();
+        comparisonTester.setState(sorterState);
+
+        int[] comparisonsNumberArray = comparisonTester.countComparisonsSort();
+        assertThat(comparisonsNumberArray[0]).isIn(2,3);
+        assertThat(comparisonsNumberArray[1]).isIn(2,3);
+    }
+
+    @Test
+    public void resetKeyComparisonsNumberEveryIterationQuickSortTest(){
+        nElements = 2;
+        nArrays = 2;
+        comparisonTester.setNElements(nElements);
+        comparisonTester.setNArrays(nArrays);
+
+        sorterState = new QuickSort();
+        comparisonTester.setState(sorterState);
+
+        int[] comparisonsNumberArray = comparisonTester.countComparisonsSort();
+        assertThat(comparisonsNumberArray[0]).isIn(2,3);
+        assertThat(comparisonsNumberArray[1]).isIn(2,3);
     }
 }

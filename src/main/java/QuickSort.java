@@ -1,8 +1,11 @@
-public class QuickSort {
+public class QuickSort implements SorterState {
     private int[] arrayToSort;
     private int keysComparisonsNumber;
     public QuickSort(int[] arrayToSort) {
         this.arrayToSort = arrayToSort;
+    }
+
+    public QuickSort() {
     }
 
     public int[] sort() {
@@ -12,6 +15,7 @@ public class QuickSort {
     }
 
     public void setArrayToSort(int[] arrayToSort) {
+        keysComparisonsNumber=0;
         this.arrayToSort = arrayToSort;
     }
 
@@ -69,5 +73,11 @@ public class QuickSort {
 
     public int getKeysComparisonsNumber() {
         return keysComparisonsNumber;
+    }
+
+    @Override
+    public int[] sort(int[] arrayToSort) {
+        setArrayToSort(arrayToSort);
+        return sort();
     }
 }

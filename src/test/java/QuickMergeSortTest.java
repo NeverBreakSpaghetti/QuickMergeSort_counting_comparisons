@@ -316,9 +316,22 @@ public class QuickMergeSortTest {
     }
 
     @Test
-    public void conutComparisonsNullArrayTest(){
+    public void countComparisonsNullArrayTest(){
         quickMergeSort.setArrayToSort(null);
         quickMergeSort.sort();
         assertThat(quickMergeSort.getKeysComparisonsNumber()).isEqualTo(0);
+    }
+
+    @Test
+    public void SorterStateSortTest(){
+        SorterState sorterState = new QuickMergeSort();
+        assertThat(Arrays.toString(sorterState.sort(new int[]{3,2,1}))).isEqualTo("[1, 2, 3]");
+    }
+
+    @Test
+    public void SorterStateGetKeysComparisonsNumberTest(){
+        SorterState sorterState = new QuickMergeSort();
+        sorterState.sort(new int[]{7,2,3,9,8});
+        assertThat(sorterState.getKeysComparisonsNumber()).isEqualTo(9);
     }
 }
