@@ -75,7 +75,8 @@ public class QuickSort implements SorterState {
     }
 
     @Override
-    public int[] sort(int[] ints) {
-        return null;
+    public int[] sort(int[] arrayToSort) {
+        setArrayToSort(arrayToSort);
+        return sort();
     }
 }
