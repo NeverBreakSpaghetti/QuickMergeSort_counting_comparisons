@@ -80,4 +80,19 @@ public class ComparisonTesterTest {
         comparisonTester.setState(sorterState);
         assertThat(comparisonTester.getState()).isInstanceOf(QuickSort.class);
     }
+
+    @Test
+    public void resetKeyComparisonsNumberEveryIterationTest(){
+        int nElements = 2;
+        int nArrays = 2;
+        comparisonTester.setNElements(nElements);
+        comparisonTester.setNArrays(nArrays);
+
+        SorterState sorterState = new QuickMergeSort();
+        comparisonTester.setState(sorterState);
+
+        int[] comparisonsNumberArray = comparisonTester.countComparisonsSort();
+        assertThat(comparisonsNumberArray[0]).isIn(2,3);
+        assertThat(comparisonsNumberArray[1]).isIn(2,3);
+    }
 }
