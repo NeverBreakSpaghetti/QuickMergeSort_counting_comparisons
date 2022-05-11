@@ -146,4 +146,11 @@ public class QuickSortTest {
         SorterState sorterState = new QuickSort();
         assertThat(Arrays.toString(sorterState.sort(new int[]{3,2,1}))).isEqualTo("[1, 2, 3]");
     }
+
+    @Test
+    public void SorterStateGetKeysComparisonsNumberTest(){
+        SorterState sorterState = new QuickSort();
+        sorterState.sort(new int[]{7,2,3,9,8});
+        assertThat(sorterState.getKeysComparisonsNumber()).isEqualTo(10);
+    }
 }
