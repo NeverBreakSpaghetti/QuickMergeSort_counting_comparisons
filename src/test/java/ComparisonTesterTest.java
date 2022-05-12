@@ -141,4 +141,21 @@ public class ComparisonTesterTest {
         assertThat(comparisonsNumberArray.length).isEqualTo(0);
     }
 
+    @Test
+    public void comparisonsSortingAlgorithmsOneElementListTest(){
+        nElements = 2;
+        nArrays = 2;
+        comparisonTester.setNElements(nElements);
+        comparisonTester.setNArrays(nArrays);
+
+        List<SorterState> sortingAlgorithmList = new ArrayList<>();
+        sortingAlgorithmList.add(new QuickMergeSort());
+
+        int[][] comparisonsNumberArray = comparisonTester.countComparisons(sortingAlgorithmList);
+
+        assertThat(comparisonsNumberArray[0].length).isEqualTo(nArrays);
+        assertThat(comparisonsNumberArray[0][0]).isIn(2,3);
+        assertThat(comparisonsNumberArray[0][1]).isIn(2,3);
+    }
+
 }
