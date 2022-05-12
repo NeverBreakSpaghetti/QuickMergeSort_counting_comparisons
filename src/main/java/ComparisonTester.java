@@ -60,8 +60,10 @@ public class ComparisonTester {
                 for (int i = 0; i < nArrays; i++) {
                     for (int j = 0; j < nElements; j++)
                         array[j] = random.nextInt();
-                    sortingAlgorithmList.get(0).sort(array);
-                    resultComparisonsNumberBySorter[0][i] = sortingAlgorithmList.get(0).getKeysComparisonsNumber();
+                    for (int a = 0; a < sortingAlgorithmList.size(); a++ ) {
+                        sortingAlgorithmList.get(a).sort(array);
+                        resultComparisonsNumberBySorter[a][i] = sortingAlgorithmList.get(0).getKeysComparisonsNumber();
+                    }
                 }
             }
         }

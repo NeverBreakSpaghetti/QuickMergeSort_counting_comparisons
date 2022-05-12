@@ -1,8 +1,11 @@
+import java.util.Arrays;
+
 public class QuickSort implements SorterState {
     private int[] arrayToSort;
     private int keysComparisonsNumber;
     public QuickSort(int[] arrayToSort) {
-        this.arrayToSort = arrayToSort;
+        if (arrayToSort != null)
+            this.arrayToSort = Arrays.copyOf(arrayToSort, arrayToSort.length);
     }
 
     public QuickSort() {
@@ -16,7 +19,8 @@ public class QuickSort implements SorterState {
 
     public void setArrayToSort(int[] arrayToSort) {
         keysComparisonsNumber=0;
-        this.arrayToSort = arrayToSort;
+        if (arrayToSort != null)
+            this.arrayToSort = Arrays.copyOf(arrayToSort, arrayToSort.length);
     }
 
     public int[] getArray() {
