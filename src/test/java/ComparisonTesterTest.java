@@ -119,22 +119,12 @@ public class ComparisonTesterTest {
 
     @Test
     public void comparisonsSortingAlgorithmsNullListTest(){
-        nElements = 2;
-        nArrays = 1;
-        comparisonTester.setNElements(nElements);
-        comparisonTester.setNArrays(nArrays);
-
         List<SorterState> sortingAlgorithmList = null;
 
         assertThat(comparisonTester.countComparisons(sortingAlgorithmList)).isNull();
     }
     @Test
     public void comparisonsSortingAlgorithmsEmptyListTest(){
-        nElements = 2;
-        nArrays = 1;
-        comparisonTester.setNElements(nElements);
-        comparisonTester.setNArrays(nArrays);
-
         List<SorterState> sortingAlgorithmList = new ArrayList<>();
 
         int[][] comparisonsNumberArray = comparisonTester.countComparisons(sortingAlgorithmList);
