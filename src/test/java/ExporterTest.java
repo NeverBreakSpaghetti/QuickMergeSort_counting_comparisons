@@ -6,6 +6,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class ExporterTest {
@@ -77,5 +78,16 @@ public class ExporterTest {
 
         assertTrue(fileCSV.exists());
         fileCSV.delete();
+    }
+
+    @Test
+    public void createNullCSVTest(){
+        Exporter exporter = new Exporter();
+
+        String filename = "test2.csv";
+        File fileCSV = new File(filename);
+        exporter.export(filename,null,null);
+
+        assertTrue(!fileCSV.exists());
     }
 }
