@@ -51,8 +51,20 @@ public class ComparisonTester {
 
     public int[][] countComparisons(List<SorterState> sortingAlgorithmList) {
         int[][] resultComparisonsNumberBySorter =  null;
-        if ( sortingAlgorithmList != null )
-            resultComparisonsNumberBySorter = new int[][]{};
+        int[] array = new int[nElements];
+        Random random = new Random();
+
+        if ( sortingAlgorithmList != null ) {
+            resultComparisonsNumberBySorter = new int[sortingAlgorithmList.size()][nArrays];
+            if ( sortingAlgorithmList.size() > 0 ) {
+                for (int i = 0; i < nArrays; i++) {
+                    for (int j = 0; j < nElements; j++)
+                        array[j] = random.nextInt();
+                    sortingAlgorithmList.get(0).sort(array);
+                    resultComparisonsNumberBySorter[0][i] = sortingAlgorithmList.get(0).getKeysComparisonsNumber();
+                }
+            }
+        }
         return resultComparisonsNumberBySorter;
     }
 }
