@@ -323,13 +323,13 @@ public class QuickMergeSortTest {
     }
 
     @Test
-    public void SorterStateSortTest(){
+    public void sorterStateSortTest(){
         SorterState sorterState = new QuickMergeSort();
         assertThat(Arrays.toString(sorterState.sort(new int[]{3,2,1}))).isEqualTo("[1, 2, 3]");
     }
 
     @Test
-    public void SorterStateGetKeysComparisonsNumberTest(){
+    public void sorterStateGetKeysComparisonsNumberTest(){
         SorterState sorterState = new QuickMergeSort();
         sorterState.sort(new int[]{7,2,3,9,8});
         assertThat(sorterState.getKeysComparisonsNumber()).isEqualTo(9);

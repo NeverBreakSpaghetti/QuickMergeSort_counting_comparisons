@@ -1,8 +1,11 @@
+import java.util.Arrays;
+
 public class QuickMergeSort implements SorterState {
     private int[] arrayToSort;
     private int keysComparisonsNumber;
     public QuickMergeSort(int[] arrayToSort) {
-        this.arrayToSort =arrayToSort;
+        if (arrayToSort != null)
+            this.arrayToSort = Arrays.copyOf(arrayToSort, arrayToSort.length);
         keysComparisonsNumber=0;
     }
 
@@ -70,7 +73,8 @@ public class QuickMergeSort implements SorterState {
 
     public void setArrayToSort(int[] newArrayToSort) {
         keysComparisonsNumber=0;
-        this.arrayToSort = newArrayToSort;
+        if (newArrayToSort != null)
+            this.arrayToSort = Arrays.copyOf(newArrayToSort, newArrayToSort.length);
     }
 
     public int[] getArray() {

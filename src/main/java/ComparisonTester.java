@@ -1,3 +1,4 @@
+import java.util.List;
 import java.util.Random;
 
 public class ComparisonTester {
@@ -17,12 +18,10 @@ public class ComparisonTester {
 
     public int[] countComparisonsSort() {
         int[] resultNumbersComparisons = new int[nArrays];
-        int[] array = new int[nElements];
-        Random random = new Random();
+        int[] array;
 
         for (int j=0; j<nArrays; j++) {
-            for (int i = 0; i < nElements; i++)
-                array[i] = random.nextInt();
+            array = createRandomArray(nElements);
             sorterState.sort(array);
             resultNumbersComparisons[j] = sorterState.getKeysComparisonsNumber();
         }
@@ -46,5 +45,32 @@ public class ComparisonTester {
 
     public SorterState getState() {
         return sorterState;
+    }
+
+    public int[][] countComparisons(List<SorterState> sortingAlgorithmList) {
+        int[][] resultComparisonsNumberBySorter =  null;
+        int[] array;
+
+        if ( sortingAlgorithmList != null ) {
+            resultComparisonsNumberBySorter = new int[sortingAlgorithmList.size()][nArrays];
+            if ( sortingAlgorithmList.size() > 0 ) {
+                for (int i = 0; i < nArrays; i++) {
+                    array = createRandomArray(nElements);
+                    for (int a = 0; a < sortingAlgorithmList.size(); a++ ) {
+                        sortingAlgorithmList.get(a).sort(array);
+                        resultComparisonsNumberBySorter[a][i] = sortingAlgorithmList.get(0).getKeysComparisonsNumber();
+                    }
+                }
+            }
+        }
+        return resultComparisonsNumberBySorter;
+    }
+
+    private int[] createRandomArray(int length) {
+        int[] array = new int[length];
+        Random random = new Random();
+        for (int i = 0; i < length; i++)
+            array[i] = random.nextInt();
+        return array;
     }
 }
