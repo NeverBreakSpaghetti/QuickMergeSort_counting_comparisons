@@ -29,4 +29,12 @@ public class ExporterTest {
 
         assertThat(exporter.convertToCSVRow(stringToConvert)).isEqualTo("1;2");
     }
+
+    @Test
+    public void threeElementArrayConvertToCSVRow(){
+        Exporter exporter = new Exporter();
+        String stringToConvert = Arrays.toString(new int[]{1,2,3});
+
+        assertThat(exporter.convertToCSVRow(stringToConvert)).isEqualTo("1;2;3");
+    }
 }
