@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.List;
 
 public class Exporter {
@@ -16,6 +17,13 @@ public class Exporter {
     }
 
     public String convertComparisonsBySortingAlgorithm(List<SorterState> sortingAlgorithmList, int[][] comparisonsArray) {
-        return null;
+        String returnString="";
+        for (int i=0; i<sortingAlgorithmList.size(); i++) {
+            String row;
+            row = "\"" + sortingAlgorithmList.get(i).getClass().getName() + "\";";
+            row = row + convertToCSVRow(Arrays.toString(comparisonsArray[i])) + "\n";
+            returnString += row;
+        }
+        return returnString.substring(0,returnString.length()-1);
     }
 }
