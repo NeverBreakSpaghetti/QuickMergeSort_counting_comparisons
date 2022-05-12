@@ -30,4 +30,7 @@ public class Exporter {
         }
         return returnString.toString();
     }
+
+    public void export(String filename, List<SorterState> sortingAlgorithmList, int[][] comparisonsArray) {
+    }
 }

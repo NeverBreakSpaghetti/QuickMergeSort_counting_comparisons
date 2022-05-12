@@ -1,10 +1,12 @@
 import org.junit.jupiter.api.Test;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class ExporterTest {
 
@@ -61,5 +63,18 @@ public class ExporterTest {
         sortingAlgorithmList.add(new QuickSort());
 
         assertThat(exporter.convertComparisonsBySortingAlgorithm(sortingAlgorithmList,comparisonsArray)).isEqualTo("\"QuickMergeSort\";3;4;9\n\"QuickSort\";7;3;5");
+    }
+
+    @Test
+    public void createEmptyCSVTest(){
+        Exporter exporter = new Exporter();
+        int[][] comparisonsArray= new int[][]{};
+        List<SorterState> sortingAlgorithmList = new ArrayList<>();
+
+        String filename = "test.csv";
+        File fileCSV = new File(filename);
+        exporter.export(filename,sortingAlgorithmList,comparisonsArray);
+
+        assertTrue(fileCSV.exists());
     }
 }
