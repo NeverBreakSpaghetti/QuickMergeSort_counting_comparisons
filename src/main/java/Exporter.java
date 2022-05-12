@@ -34,10 +34,12 @@ public class Exporter {
     }
 
     public void export(String filename, List<SorterState> sortingAlgorithmList, int[][] comparisonsArray) {
-        try {
-            PrintWriter printWriter = new PrintWriter(filename);
-        } catch (FileNotFoundException e) {
-            System.err.println("FileNotFoundException was thrown");
+        if(filename!=null && sortingAlgorithmList!=null && comparisonsArray!=null) {
+            try {
+                PrintWriter printWriter = new PrintWriter(filename);
+            } catch (FileNotFoundException e) {
+                System.err.println("FileNotFoundException was thrown");
+            }
         }
     }
 }
