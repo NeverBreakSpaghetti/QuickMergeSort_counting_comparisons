@@ -158,4 +158,22 @@ public class ComparisonTesterTest {
         assertThat(comparisonsNumberArray[0][1]).isIn(2,3);
     }
 
+    @Test
+    public void comparisonsSortingAlgorithmsMultiElementsListTest(){
+        nElements = 2;
+        nArrays = 1;
+        comparisonTester.setNElements(nElements);
+        comparisonTester.setNArrays(nArrays);
+
+        SorterState quickMergeSort = new QuickMergeSort();
+        SorterState quickSort = new QuickSort();
+        List<SorterState> sortingAlgorithmList = new ArrayList<>();
+        sortingAlgorithmList.add(quickMergeSort);
+        sortingAlgorithmList.add(quickSort);
+
+        int[][] comparisonsNumberArray = comparisonTester.countComparisons(sortingAlgorithmList);
+
+        assertThat(comparisonsNumberArray[0][0]).isIn(2,3);
+        assertThat(comparisonsNumberArray[1][0]).isIn(2,3);
+    }
 }
