@@ -1,3 +1,5 @@
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.List;
 
@@ -32,5 +34,10 @@ public class Exporter {
     }
 
     public void export(String filename, List<SorterState> sortingAlgorithmList, int[][] comparisonsArray) {
+        try {
+            PrintWriter printWriter = new PrintWriter(filename);
+        } catch (FileNotFoundException e) {
+            System.err.println("FileNotFoundException was thrown");
+        }
     }
 }
