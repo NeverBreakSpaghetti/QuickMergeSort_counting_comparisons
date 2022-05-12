@@ -21,4 +21,12 @@ public class ExporterTest {
 
         assertThat(exporter.convertToCSVRow(stringToConvert)).isEqualTo("1");
     }
+
+    @Test
+    public void twoElementArrayConvertToCSVRow(){
+        Exporter exporter = new Exporter();
+        String stringToConvert = Arrays.toString(new int[]{1,2});
+
+        assertThat(exporter.convertToCSVRow(stringToConvert)).isEqualTo("1;2");
+    }
 }
