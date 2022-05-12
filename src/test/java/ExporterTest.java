@@ -50,4 +50,16 @@ public class ExporterTest {
 
         assertThat(exporter.convertComparisonsBySortingAlgorithm(sortingAlgorithmList,comparisonsArray)).isEqualTo("\"QuickMergeSort\";3;4;9");
     }
+
+    @Test
+    public void comparisonsSortingAlgorithmsConvertToCSVRowTo(){
+        Exporter exporter = new Exporter();
+        int[][] comparisonsArray = new int[][]{{3,4,9},{7,3,5}};
+
+        List<SorterState> sortingAlgorithmList = new ArrayList<>();
+        sortingAlgorithmList.add(new QuickMergeSort());
+        sortingAlgorithmList.add(new QuickSort());
+
+        assertThat(exporter.convertComparisonsBySortingAlgorithm(sortingAlgorithmList,comparisonsArray)).isEqualTo("\"QuickMergeSort\";3;4;9\n\"QuickSort\";7;3;5");
+    }
 }
