@@ -1,5 +1,8 @@
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -112,5 +115,17 @@ public class ComparisonTesterTest {
         int[] comparisonsNumberArray = comparisonTester.countComparisonsSort();
         assertThat(comparisonsNumberArray[0]).isIn(2,3);
         assertThat(comparisonsNumberArray[1]).isIn(2,3);
+    }
+
+    @Test
+    public void comparisonsSortingAlgorithmsNullListTest(){
+        nElements = 2;
+        nArrays = 1;
+        comparisonTester.setNElements(nElements);
+        comparisonTester.setNArrays(nArrays);
+
+        List<SorterState> sortingAlgorithmList = null;
+
+        assertThat(comparisonTester.countComparisons(sortingAlgorithmList)).isNull();
     }
 }

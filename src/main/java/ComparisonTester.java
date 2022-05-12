@@ -1,3 +1,4 @@
+import java.util.List;
 import java.util.Random;
 
 public class ComparisonTester {
@@ -46,5 +47,9 @@ public class ComparisonTester {
 
     public SorterState getState() {
         return sorterState;
+    }
+
+    public int[][] countComparisons(List<SorterState> sortingAlgorithmList) {
+        return null;
     }
 }
