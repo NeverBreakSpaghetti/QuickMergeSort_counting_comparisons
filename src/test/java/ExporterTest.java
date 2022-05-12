@@ -76,5 +76,6 @@ public class ExporterTest {
         exporter.export(filename,sortingAlgorithmList,comparisonsArray);
 
         assertTrue(fileCSV.exists());
+        fileCSV.delete();
     }
 }
