@@ -17,13 +17,17 @@ public class Exporter {
     }
 
     public String convertComparisonsBySortingAlgorithm(List<SorterState> sortingAlgorithmList, int[][] comparisonsArray) {
-        String returnString="";
+        StringBuilder returnString = new StringBuilder();
+        String prefix = "";
         for (int i=0; i<sortingAlgorithmList.size(); i++) {
-            String row;
-            row = "\"" + sortingAlgorithmList.get(i).getClass().getName() + "\";";
-            row = row + convertToCSVRow(Arrays.toString(comparisonsArray[i])) + "\n";
-            returnString += row;
+            returnString.append(prefix);
+            prefix="\n";
+            returnString.append("\"");
+            returnString.append(sortingAlgorithmList.get(i).getClass().getName());
+            returnString.append("\"");
+            returnString.append(SEPARATOR);
+            returnString.append( convertToCSVRow(Arrays.toString(comparisonsArray[i])) );
         }
-        return returnString.substring(0,returnString.length()-1);
+        return returnString.toString();
     }
 }
