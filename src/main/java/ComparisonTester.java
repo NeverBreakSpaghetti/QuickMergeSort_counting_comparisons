@@ -50,6 +50,9 @@ public class ComparisonTester {
     }
 
     public int[][] countComparisons(List<SorterState> sortingAlgorithmList) {
-        return null;
+        int[][] resultComparisonsNumberBySorter =  null;
+        if ( sortingAlgorithmList != null )
+            resultComparisonsNumberBySorter = new int[][]{};
+        return resultComparisonsNumberBySorter;
     }
 }
