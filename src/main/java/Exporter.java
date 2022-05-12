@@ -1,3 +1,5 @@
+import java.util.List;
+
 public class Exporter {
 
     public static final String SEPARATOR = ";";
@@ -11,5 +13,9 @@ public class Exporter {
             resultRow=resultRow.replaceAll(" ","");
         }
         return resultRow;
+    }
+
+    public String convertComparisonsBySortingAlgorithm(List<SorterState> sortingAlgorithmList, int[][] comparisonsArray) {
+        return null;
     }
 }
