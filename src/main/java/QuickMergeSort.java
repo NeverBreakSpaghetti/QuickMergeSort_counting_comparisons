@@ -1,9 +1,16 @@
-public class QuickMergeSort {
+import java.util.Arrays;
+
+public class QuickMergeSort implements SorterState {
     private int[] arrayToSort;
     private int keysComparisonsNumber;
     public QuickMergeSort(int[] arrayToSort) {
-        this.arrayToSort =arrayToSort;
+        if (arrayToSort != null)
+            this.arrayToSort = Arrays.copyOf(arrayToSort, arrayToSort.length);
         keysComparisonsNumber=0;
+    }
+
+    public QuickMergeSort() {
+
     }
 
     public int[] sort() {
@@ -65,7 +72,9 @@ public class QuickMergeSort {
     }
 
     public void setArrayToSort(int[] newArrayToSort) {
-        this.arrayToSort = newArrayToSort;
+        keysComparisonsNumber=0;
+        if (newArrayToSort != null)
+            this.arrayToSort = Arrays.copyOf(newArrayToSort, newArrayToSort.length);
     }
 
     public int[] getArray() {
@@ -139,5 +148,11 @@ public class QuickMergeSort {
 
     public int getKeysComparisonsNumber() {
         return keysComparisonsNumber;
+    }
+
+    @Override
+    public int[] sort(int[] arrayToSort) {
+        setArrayToSort(arrayToSort);
+        return sort();
     }
 }
