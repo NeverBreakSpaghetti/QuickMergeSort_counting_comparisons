@@ -50,4 +50,11 @@ public class InsertionSortTest {
 
         assertThat(Arrays.toString(inputArray)).isEqualTo("[6, 8, 7]");
     }
+
+    @Test
+    public void contComparisonsNullArrayTest(){
+        insertionSort.sort(null);
+
+        assertThat(insertionSort.getKeysComparisonsNumber()).isEqualTo(0);
+    }
 }
