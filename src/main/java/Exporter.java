@@ -37,6 +37,8 @@ public class Exporter {
         if(filename!=null && sortingAlgorithmList!=null && comparisonsArray!=null) {
             try {
                 PrintWriter printWriter = new PrintWriter(filename);
+                printWriter.write(convertComparisonsBySortingAlgorithm(sortingAlgorithmList,comparisonsArray));
+                printWriter.close();
             } catch (FileNotFoundException e) {
                 System.err.println("FileNotFoundException was thrown");
             }
