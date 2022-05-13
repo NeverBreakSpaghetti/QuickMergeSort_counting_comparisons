@@ -33,4 +33,11 @@ public class InsertionSortTest {
 
         assertThat(Arrays.toString(insertionSort.sort(new int[]{1}))).isEqualTo("[1]");
     }
+
+    @Test
+    public void twoElementsArraySortTest(){
+        SorterState insertionSort = new InsertionSort();
+
+        assertThat(Arrays.toString(insertionSort.sort(new int[]{2,1}))).isEqualTo("[1, 2]");
+    }
 }
