@@ -90,4 +90,16 @@ public class ExporterTest {
 
         assertTrue(!fileCSV.exists());
     }
+
+    @Test
+    public void changeSeparator(){
+        Exporter exporter = new Exporter();
+        int[][] comparisonsArray = new int[][]{{3,4,9}};
+
+        List<SorterState> sortingAlgorithmList = new ArrayList<>();
+        sortingAlgorithmList.add(new QuickMergeSort());
+
+        exporter.setSeparator(",");
+        assertThat(exporter.convertComparisonsBySortingAlgorithm(sortingAlgorithmList,comparisonsArray)).isEqualTo("\"QuickMergeSort\",3,4,9");
+    }
 }

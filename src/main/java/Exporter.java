@@ -42,4 +42,7 @@ public class Exporter {
             }
         }
     }
+
+    public void setSeparator(String s) {
+    }
 }
