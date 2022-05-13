@@ -13,4 +13,10 @@ public class InsertionSortTest {
         assertThat(insertionSort.getKeysComparisonsNumber()).isEqualTo(0);
     }
 
+    @Test
+    public void emptyArraySortTest(){
+        SorterState insertionSort = new InsertionSort();
+
+        assertThat(Arrays.toString(insertionSort.sort(new int[]{}))).isEqualTo("[]");
+    }
 }
