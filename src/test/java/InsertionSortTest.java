@@ -40,4 +40,11 @@ public class InsertionSortTest {
 
         assertThat(Arrays.toString(insertionSort.sort(new int[]{2,1}))).isEqualTo("[1, 2]");
     }
+
+    @Test
+    public void threeElementsArraySortTest(){
+        SorterState insertionSort = new InsertionSort();
+
+        assertThat(Arrays.toString(insertionSort.sort(new int[]{2,3,1}))).isEqualTo("[1, 2, 3]");
+    }
 }
