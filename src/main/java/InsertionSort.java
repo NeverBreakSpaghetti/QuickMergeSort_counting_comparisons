@@ -1,7 +1,7 @@
 public class InsertionSort implements SorterState {
     @Override
-    public int[] sort(int[] ints) {
-        return null;
+    public int[] sort(int[] array) {
+        return array;
     }
 
     @Override
