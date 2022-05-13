@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Exporter {
 
-    public static String SEPARATOR = ";";
+    public static String SEPARATOR = ",";
 
     public String convertToCSVRow(String stringToConvert) {
         String resultRow = stringToConvert;

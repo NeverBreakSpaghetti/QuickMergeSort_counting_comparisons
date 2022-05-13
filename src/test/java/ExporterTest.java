@@ -32,7 +32,7 @@ public class ExporterTest {
         Exporter exporter = new Exporter();
         String stringToConvert = Arrays.toString(new int[]{1,2});
 
-        assertThat(exporter.convertToCSVRow(stringToConvert)).isEqualTo("1;2");
+        assertThat(exporter.convertToCSVRow(stringToConvert)).isEqualTo("1,2");
     }
 
     @Test
@@ -40,7 +40,7 @@ public class ExporterTest {
         Exporter exporter = new Exporter();
         String stringToConvert = Arrays.toString(new int[]{1,2,3});
 
-        assertThat(exporter.convertToCSVRow(stringToConvert)).isEqualTo("1;2;3");
+        assertThat(exporter.convertToCSVRow(stringToConvert)).isEqualTo("1,2,3");
     }
 
     @Test
@@ -51,7 +51,7 @@ public class ExporterTest {
         List<SorterState> sortingAlgorithmList = new ArrayList<>();
         sortingAlgorithmList.add(new QuickMergeSort());
 
-        assertThat(exporter.convertComparisonsBySortingAlgorithm(sortingAlgorithmList,comparisonsArray)).isEqualTo("\"QuickMergeSort\";3;4;9");
+        assertThat(exporter.convertComparisonsBySortingAlgorithm(sortingAlgorithmList,comparisonsArray)).isEqualTo("\"QuickMergeSort\",3,4,9");
     }
 
     @Test
@@ -63,7 +63,7 @@ public class ExporterTest {
         sortingAlgorithmList.add(new QuickMergeSort());
         sortingAlgorithmList.add(new QuickSort());
 
-        assertThat(exporter.convertComparisonsBySortingAlgorithm(sortingAlgorithmList,comparisonsArray)).isEqualTo("\"QuickMergeSort\";3;4;9\n\"QuickSort\";7;3;5");
+        assertThat(exporter.convertComparisonsBySortingAlgorithm(sortingAlgorithmList,comparisonsArray)).isEqualTo("\"QuickMergeSort\",3,4,9\n\"QuickSort\",7,3,5");
     }
 
     @Test
@@ -99,7 +99,7 @@ public class ExporterTest {
         List<SorterState> sortingAlgorithmList = new ArrayList<>();
         sortingAlgorithmList.add(new QuickMergeSort());
 
-        exporter.setSeparator(",");
-        assertThat(exporter.convertComparisonsBySortingAlgorithm(sortingAlgorithmList,comparisonsArray)).isEqualTo("\"QuickMergeSort\",3,4,9");
+        exporter.setSeparator(";");
+        assertThat(exporter.convertComparisonsBySortingAlgorithm(sortingAlgorithmList,comparisonsArray)).isEqualTo("\"QuickMergeSort\";3;4;9");
     }
 }
