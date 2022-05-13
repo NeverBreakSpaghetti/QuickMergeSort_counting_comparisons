@@ -19,4 +19,11 @@ public class InsertionSortTest {
 
         assertThat(Arrays.toString(insertionSort.sort(new int[]{}))).isEqualTo("[]");
     }
+
+    @Test
+    public void nullArraySortTest(){
+        SorterState insertionSort = new InsertionSort();
+
+        assertThat(insertionSort.sort(null)).isEqualTo(null);
+    }
 }
