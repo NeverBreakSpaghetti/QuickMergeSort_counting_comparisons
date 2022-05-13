@@ -71,4 +71,11 @@ public class InsertionSortTest {
 
         assertThat(insertionSort.getKeysComparisonsNumber()).isEqualTo(0);
     }
+
+    @Test
+    public void contComparisonsTwoElementArrayTest(){
+        insertionSort.sort(new int[]{3,2});
+
+        assertThat(insertionSort.getKeysComparisonsNumber()).isEqualTo(1);
+    }
 }
