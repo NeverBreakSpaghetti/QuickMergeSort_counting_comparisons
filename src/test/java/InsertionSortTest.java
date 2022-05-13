@@ -57,4 +57,11 @@ public class InsertionSortTest {
 
         assertThat(insertionSort.getKeysComparisonsNumber()).isEqualTo(0);
     }
+
+    @Test
+    public void contComparisonsEmptyArrayTest(){
+        insertionSort.sort(new int[]{});
+
+        assertThat(insertionSort.getKeysComparisonsNumber()).isEqualTo(0);
+    }
 }
