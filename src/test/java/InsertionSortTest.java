@@ -26,4 +26,11 @@ public class InsertionSortTest {
 
         assertThat(insertionSort.sort(null)).isEqualTo(null);
     }
+
+    @Test
+    public void oneElementArraySortTest(){
+        SorterState insertionSort = new InsertionSort();
+
+        assertThat(Arrays.toString(insertionSort.sort(new int[]{1}))).isEqualTo("[1]");
+    }
 }
