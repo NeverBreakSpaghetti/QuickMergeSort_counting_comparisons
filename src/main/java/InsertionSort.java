@@ -1,8 +1,12 @@
 import java.util.Arrays;
 
 public class InsertionSort implements SorterState {
+
+    private int keysComparisonsNumber;
+
     @Override
     public int[] sort(int[] array) {
+        keysComparisonsNumber=0;
         int[] arrayToSort = array;
         if( array!=null && array.length>1 ) {
             arrayToSort = Arrays.copyOf(array, array.length);
@@ -10,6 +14,7 @@ public class InsertionSort implements SorterState {
                 int elementToOrder = arrayToSort[i];
                 int j = i - 1;
                 while (j >= 0 && arrayToSort[j] > elementToOrder) {
+                    keysComparisonsNumber++;
                     arrayToSort[j + 1] = arrayToSort[j];
                     j--;
                 }
@@ -21,6 +26,6 @@ public class InsertionSort implements SorterState {
 
     @Override
     public int getKeysComparisonsNumber() {
-        return 0;
+        return keysComparisonsNumber;
     }
 }
