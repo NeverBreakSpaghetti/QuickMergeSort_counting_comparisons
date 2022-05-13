@@ -8,48 +8,42 @@ import java.util.Arrays;
 import java.util.List;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class ExporterTest {
+    Exporter exporter = new Exporter();
 
     @Test
-    public void emptyArrayConvertToCSVRow(){
-        Exporter exporter = new Exporter();
+    public void emptyArrayConvertToCSVRowTest(){
         String stringToConvert = Arrays.toString(new int[]{});
 
         assertThat(exporter.convertToCSVRow(stringToConvert)).isEqualTo("");
     }
 
     @Test
-    public void singleElementArrayConvertToCSVRow(){
-        Exporter exporter = new Exporter();
+    public void singleElementArrayConvertToCSVRowTest(){
         String stringToConvert = Arrays.toString(new int[]{1});
 
         assertThat(exporter.convertToCSVRow(stringToConvert)).isEqualTo("1");
     }
 
     @Test
-    public void twoElementArrayConvertToCSVRow(){
-        Exporter exporter = new Exporter();
+    public void twoElementArrayConvertToCSVRowTest(){
         String stringToConvert = Arrays.toString(new int[]{1,2});
 
         assertThat(exporter.convertToCSVRow(stringToConvert)).isEqualTo("1,2");
     }
 
     @Test
-    public void threeElementArrayConvertToCSVRow(){
-        Exporter exporter = new Exporter();
+    public void threeElementArrayConvertToCSVRowTest(){
         String stringToConvert = Arrays.toString(new int[]{1,2,3});
 
         assertThat(exporter.convertToCSVRow(stringToConvert)).isEqualTo("1,2,3");
     }
 
     @Test
-    public void comparisonsOneSortingAlgorithmConvertToCSVRowTo(){
-        Exporter exporter = new Exporter();
+    public void comparisonsOneSortingAlgorithmConvertToCSVRowToTest(){
         int[][] comparisonsArray = new int[][]{{3,4,9}};
-
         List<SorterState> sortingAlgorithmList = new ArrayList<>();
         sortingAlgorithmList.add(new QuickMergeSort());
 
@@ -57,10 +51,8 @@ public class ExporterTest {
     }
 
     @Test
-    public void comparisonsSortingAlgorithmsConvertToCSVRowTo(){
-        Exporter exporter = new Exporter();
+    public void comparisonsSortingAlgorithmsConvertToCSVRowToTest(){
         int[][] comparisonsArray = new int[][]{{3,4,9},{7,3,5}};
-
         List<SorterState> sortingAlgorithmList = new ArrayList<>();
         sortingAlgorithmList.add(new QuickMergeSort());
         sortingAlgorithmList.add(new QuickSort());
@@ -70,13 +62,12 @@ public class ExporterTest {
 
     @Test
     public void createEmptyCSVTest(){
-        Exporter exporter = new Exporter();
         int[][] comparisonsArray= new int[][]{};
         List<SorterState> sortingAlgorithmList = new ArrayList<>();
 
-        String filename = "test.csv";
-        File fileCSV = new File(filename);
-        exporter.export(filename,sortingAlgorithmList,comparisonsArray);
+        String fileName = "test.csv";
+        File fileCSV = new File(fileName);
+        exporter.export(fileName,sortingAlgorithmList,comparisonsArray);
 
         assertTrue(fileCSV.exists());
         fileCSV.delete();
@@ -84,28 +75,26 @@ public class ExporterTest {
 
     @Test
     public void createNullCSVTest(){
-        Exporter exporter = new Exporter();
+        String fileName = "test2.csv";
+        File fileCSV = new File(fileName);
 
-        String filename = "test2.csv";
-        File fileCSV = new File(filename);
-        exporter.export(filename,null,null);
+        exporter.export(fileName,null,null);
 
         assertTrue(!fileCSV.exists());
     }
 
     @Test
-    public void changeSeparator(){
-        Exporter exporter = new Exporter();
+    public void changeSeparatorTest(){
         int[][] comparisonsArray = new int[][]{{3,4,9}};
-
         List<SorterState> sortingAlgorithmList = new ArrayList<>();
         sortingAlgorithmList.add(new QuickMergeSort());
 
         exporter.setSeparator(";");
+
         assertThat(exporter.convertComparisonsBySortingAlgorithm(sortingAlgorithmList,comparisonsArray)).isEqualTo("\"QuickMergeSort\";3;4;9");
+        exporter.setSeparator(",");
     }@Test
     public void createNotEmptyCSVTest() {
-        Exporter exporter = new Exporter();
         String fileName = "test3.csv";
         List<SorterState> sortingAlgorithmList = new ArrayList<>();
         sortingAlgorithmList.add(new QuickMergeSort());
