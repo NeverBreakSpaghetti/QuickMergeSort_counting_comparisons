@@ -179,4 +179,11 @@ public class MergeSortTest {
 
         assertThat(mergeSort.getKeysComparisonsNumber()).isEqualTo(0);
     }
+
+    @Test
+    public void contComparisonsEmptyArrayTest(){
+        mergeSort.sort(new int[]{});
+
+        assertThat(mergeSort.getKeysComparisonsNumber()).isEqualTo(0);
+    }
 }
