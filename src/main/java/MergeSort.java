@@ -30,7 +30,7 @@ public class MergeSort implements SorterState {
         int i1 = begin1;
         int i2 = begin2;
         int auxiliarI = 0;
-        if ( i1<begin2 && i2<end ){
+        while ( i1<begin2 && i2<end ){
             if( arrayToSort[i1] <= arrayToSort[i2] ){
                 auxiliaryArray[auxiliarI] = arrayToSort[i1];
                 i1++;
