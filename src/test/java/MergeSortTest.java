@@ -44,4 +44,13 @@ public class MergeSortTest {
         assertThat(Arrays.toString(mergeSort.getAuxiliaryArray())).isEqualTo("null");
     }
 
+    @Test
+    public void singleElementsMergeTest(){
+        mergeSort.setArrayToSort(new int[]{3,2});
+
+        mergeSort.merge(0,1,mergeSort.getArrayToSort().length);
+
+        assertThat(Arrays.toString(mergeSort.getAuxiliaryArray())).isEqualTo("[2, 3]");
+    }
+
 }

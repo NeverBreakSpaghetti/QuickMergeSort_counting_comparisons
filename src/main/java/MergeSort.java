@@ -25,4 +25,7 @@ public class MergeSort implements SorterState {
     public int[] getAuxiliaryArray() {
         return auxiliaryArray;
     }
+
+    public void merge(int i1, int i2, int n) {
+    }
 }
