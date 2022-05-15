@@ -3,6 +3,7 @@ import java.util.Arrays;
 public class MergeSort implements SorterState {
     private int[] arrayToSort;
     private int[] auxiliaryArray;
+    private int keysComparisonsNumber;
     @Override
     public int[] sort(int[] arrayToSort) {
         setArrayToSort(arrayToSort);
@@ -13,7 +14,7 @@ public class MergeSort implements SorterState {
 
     @Override
     public int getKeysComparisonsNumber() {
-        return 0;
+        return keysComparisonsNumber;
     }
 
     public void setArrayToSort(int[] arrayToSort) {
@@ -38,9 +39,11 @@ public class MergeSort implements SorterState {
         int auxiliarI = 0;
         while ( i1<begin2 && i2<end ){
             if( arrayToSort[i1] <= arrayToSort[i2] ){
+                keysComparisonsNumber++;
                 auxiliaryArray[auxiliarI] = arrayToSort[i1];
                 i1++;
             }else{
+                keysComparisonsNumber++;
                 auxiliaryArray[auxiliarI] = arrayToSort[i2];
                 i2++;
             }
