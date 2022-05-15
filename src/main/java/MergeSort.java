@@ -41,8 +41,16 @@ public class MergeSort implements SorterState {
             auxiliarI++;
         }
         if ( i1<begin2 )
-            auxiliaryArray[auxiliarI] = arrayToSort[i1];
+            while ( i1 < begin2 ) {
+                auxiliaryArray[auxiliarI] = arrayToSort[i1];
+                i1++;
+                auxiliarI++;
+            }
         else
-            auxiliaryArray[auxiliarI] = arrayToSort[i2];
+            while ( i2 < end ) {
+                auxiliaryArray[auxiliarI] = arrayToSort[i2];
+                i2++;
+                auxiliarI++;
+            }
     }
 }
