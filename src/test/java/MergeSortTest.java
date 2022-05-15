@@ -12,4 +12,11 @@ public class MergeSortTest {
         assertThat(Arrays.toString(mergeSort.sort(new int[]{}))).isEqualTo("[]");
     }
 
+    @Test
+    public void nullArraySortTest(){
+        SorterState mergeSort = new MergeSort();
+
+        assertThat(mergeSort.sort(null)).isEqualTo(null);
+    }
+
 }
