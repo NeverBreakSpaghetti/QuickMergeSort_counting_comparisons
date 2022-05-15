@@ -123,4 +123,16 @@ public class MergeSortTest {
         inOrder.verify(mockMergeSort).mergeSort(4,5);
     }
 
+    @Test
+    public void mergeCallInMergeSortTest(){
+        doCallRealMethod().when(mockMergeSort).setArrayToSort(any());
+        doCallRealMethod().when(mockMergeSort).getArrayToSort();
+        doCallRealMethod().when(mockMergeSort).mergeSort(anyInt(),anyInt());
+
+        mockMergeSort.setArrayToSort(new int[]{3,2});
+        mockMergeSort.mergeSort(0,mockMergeSort.getArrayToSort().length);
+
+        verify(mockMergeSort).merge(0,1,2);
+    }
+
 }
