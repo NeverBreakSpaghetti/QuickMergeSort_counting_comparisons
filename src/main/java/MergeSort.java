@@ -13,7 +13,8 @@ public class MergeSort implements SorterState {
 
     public void setArrayToSort(int[] arrayToSort) {
         this.arrayToSort=arrayToSort;
-        auxiliaryArray = new int[arrayToSort.length];
+        if ( arrayToSort != null )
+            auxiliaryArray = new int[arrayToSort.length];
     }
 
     public int[] getArrayToSort() {
