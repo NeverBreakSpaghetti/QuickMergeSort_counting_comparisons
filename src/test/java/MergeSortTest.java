@@ -193,4 +193,11 @@ public class MergeSortTest {
 
         assertThat(mergeSort.getKeysComparisonsNumber()).isEqualTo(0);
     }
+
+    @Test
+    public void contComparisonsTwoElementArrayTest(){
+        mergeSort.sort(new int[]{3,2});
+
+        assertThat(mergeSort.getKeysComparisonsNumber()).isEqualTo(1);
+    }
 }
