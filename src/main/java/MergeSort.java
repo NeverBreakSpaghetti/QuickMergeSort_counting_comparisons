@@ -26,6 +26,23 @@ public class MergeSort implements SorterState {
         return auxiliaryArray;
     }
 
-    public void merge(int i1, int i2, int n) {
+    public void merge(int begin1, int begin2, int end) {
+        int i1 = begin1;
+        int i2 = begin2;
+        int auxiliarI = 0;
+        if ( i1<begin2 && i2<end ){
+            if( arrayToSort[i1] <= arrayToSort[i2] ){
+                auxiliaryArray[auxiliarI] = arrayToSort[i1];
+                i1++;
+            }else{
+                auxiliaryArray[auxiliarI] = arrayToSort[i2];
+                i2++;
+            }
+            auxiliarI++;
+        }
+        if ( i1<begin2 )
+            auxiliaryArray[auxiliarI] = arrayToSort[i1];
+        else
+            auxiliaryArray[auxiliarI] = arrayToSort[i2];
     }
 }
