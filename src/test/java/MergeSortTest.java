@@ -200,4 +200,11 @@ public class MergeSortTest {
 
         assertThat(mergeSort.getKeysComparisonsNumber()).isEqualTo(1);
     }
+
+    @Test
+    public void contComparisonsThreeElementArrayTest(){
+        mergeSort.sort(new int[]{3,2,5});
+
+        assertThat(mergeSort.getKeysComparisonsNumber()).isEqualTo(3);
+    }
 }
