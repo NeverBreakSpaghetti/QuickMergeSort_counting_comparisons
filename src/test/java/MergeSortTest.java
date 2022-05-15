@@ -172,4 +172,11 @@ public class MergeSortTest {
 
         assertThat(Arrays.toString(inputArray)).isEqualTo("[6, 8, 7]");
     }
+
+    @Test
+    public void contComparisonsNullArrayTest(){
+        mergeSort.sort(null);
+
+        assertThat(mergeSort.getKeysComparisonsNumber()).isEqualTo(0);
+    }
 }
