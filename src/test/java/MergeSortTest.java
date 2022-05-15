@@ -151,4 +151,12 @@ public class MergeSortTest {
         assertThat(Arrays.toString(mergeSort.getArrayToSort())).isEqualTo("[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32]");
     }
 
+    @Test
+    public void mergeSortOrderLargeArrayWithRepetitionTest(){
+        mergeSort.setArrayToSort(new int[]{16,0,11,32,2,18,14,3,23,11,10,0,30,10,17,13,11,21,1,31,22,15,19,7,8,30,4,25,24,26,1,29,5});
+        mergeSort.mergeSort(0,mergeSort.getArrayToSort().length);
+
+        assertThat(Arrays.toString(mergeSort.getArrayToSort())).isEqualTo("[0, 0, 1, 1, 2, 3, 4, 5, 7, 8, 10, 10, 11, 11, 11, 13, 14, 15, 16, 17, 18, 19, 21, 22, 23, 24, 25, 26, 29, 30, 30, 31, 32]");
+    }
+
 }
