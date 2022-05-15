@@ -10,6 +10,7 @@ import static org.mockito.Mockito.*;
 
 public class MergeSortTest {
     MergeSort mergeSort = new MergeSort();
+    MergeSort mockMergeSort = mock(MergeSort.class);
 
     @Test
     public void emptyArraySortTest(){
@@ -87,7 +88,6 @@ public class MergeSortTest {
 
     @Test
     public void mergeSortNumberOfCallsTest(){
-        MergeSort mockMergeSort = mock(MergeSort.class);
         doCallRealMethod().when(mockMergeSort).setArrayToSort(any());
         doCallRealMethod().when(mockMergeSort).getArrayToSort();
         doCallRealMethod().when(mockMergeSort).mergeSort(anyInt(),anyInt());
@@ -101,7 +101,6 @@ public class MergeSortTest {
 
     @Test
     public void mergeSortOrderOfCallsTest(){
-        MergeSort mockMergeSort = mock(MergeSort.class);
         InOrder inOrder = inOrder(mockMergeSort);
         doCallRealMethod().when(mockMergeSort).setArrayToSort(any());
         doCallRealMethod().when(mockMergeSort).getArrayToSort();
@@ -112,7 +111,7 @@ public class MergeSortTest {
         mockMergeSort.setArrayToSort(new int[]{3,1,2,5,4});
         inOrder.verify(mockMergeSort).setArrayToSort(any());
 
-        mockMergeSort.mergeSort(0,5);
+        mockMergeSort.mergeSort(0,mockMergeSort.getArrayToSort().length);
         inOrder.verify(mockMergeSort).mergeSort(0,5);
         inOrder.verify(mockMergeSort).mergeSort(0,2);
         inOrder.verify(mockMergeSort).mergeSort(0,1);
