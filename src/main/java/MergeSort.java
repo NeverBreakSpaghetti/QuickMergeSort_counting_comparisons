@@ -52,8 +52,8 @@ public class MergeSort implements SorterState {
                 i2++;
                 auxiliarI++;
             }
-        for ( int j=0; j<auxiliaryArray.length; j++)
-            arrayToSort[j]=auxiliaryArray[j];
+        for ( int j=0; j<end-begin1; j++)
+            arrayToSort[begin1+j]=auxiliaryArray[j];
     }
 
     public void mergeSort(int begin, int end) {
