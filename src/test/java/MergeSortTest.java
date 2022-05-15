@@ -3,6 +3,9 @@ import org.junit.jupiter.api.Test;
 import java.util.Arrays;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyInt;
+import static org.mockito.Mockito.*;
 
 public class MergeSortTest {
     MergeSort mergeSort = new MergeSort();
@@ -79,6 +82,20 @@ public class MergeSortTest {
 
         assertThat(Arrays.toString(mergeSort.getAuxiliaryArray())).isEqualTo("[2, 3, 4, 5, 6, 7]");
         assertThat(Arrays.toString(mergeSort.getArrayToSort())).isEqualTo("[2, 3, 4, 5, 6, 7]");
+    }
+
+    @Test
+    public void mergeSortNumberOfCallsTest(){
+        MergeSort mockMergeSort = mock(MergeSort.class);
+        doCallRealMethod().when(mockMergeSort).setArrayToSort(any());
+        doCallRealMethod().when(mockMergeSort).getArrayToSort();
+        doCallRealMethod().when(mockMergeSort).mergeSort(anyInt(),anyInt());
+
+        mockMergeSort.setArrayToSort(new int[]{3,2});
+        mockMergeSort.mergeSort(0,mockMergeSort.getArrayToSort().length);
+
+        verify(mockMergeSort).mergeSort(0,1);
+        verify(mockMergeSort).mergeSort(1,2);
     }
 
 }
