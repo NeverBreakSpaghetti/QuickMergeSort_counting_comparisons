@@ -17,4 +17,9 @@ public class MergeSortTest {
         assertThat(mergeSort.sort(null)).isEqualTo(null);
     }
 
+    @Test
+    public void oneElementArraySortTest(){
+        assertThat(Arrays.toString(mergeSort.sort(new int[]{1}))).isEqualTo("[1]");
+    }
+
 }
