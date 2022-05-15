@@ -1,5 +1,6 @@
 public class MergeSort implements SorterState {
     private int[] arrayToSort;
+    private int[] auxiliaryArray;
     @Override
     public int[] sort(int[] arrayToSort) {
         return arrayToSort;
@@ -12,6 +13,7 @@ public class MergeSort implements SorterState {
 
     public void setArrayToSort(int[] arrayToSort) {
         this.arrayToSort=arrayToSort;
+        auxiliaryArray = new int[arrayToSort.length];
     }
 
     public int[] getArrayToSort() {
@@ -20,6 +22,6 @@ public class MergeSort implements SorterState {
 
 
     public int[] getAuxiliaryArray() {
-        return new int[0];
+        return auxiliaryArray;
     }
 }
