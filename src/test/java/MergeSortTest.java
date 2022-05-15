@@ -37,4 +37,11 @@ public class MergeSortTest {
         assertThat(Arrays.toString(mergeSort.getAuxiliaryArray())).isEqualTo("[0, 0]");
     }
 
+    @Test
+    public void GetAuxiliaryArrayNullArrayToSortTest(){
+        mergeSort.setArrayToSort(null);
+
+        assertThat(Arrays.toString(mergeSort.getAuxiliaryArray())).isEqualTo("null");
+    }
+
 }
