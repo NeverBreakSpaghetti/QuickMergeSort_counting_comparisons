@@ -13,7 +13,7 @@ public class MergeSort implements SorterState {
 
     @Override
     public int getKeysComparisonsNumber() {
-        return -1;
+        return 0;
     }
 
     public void setArrayToSort(int[] arrayToSort) {
