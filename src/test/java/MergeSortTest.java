@@ -29,4 +29,12 @@ public class MergeSortTest {
         assertThat(Arrays.toString(mergeSort.getArrayToSort())).isEqualTo("[3, 2]");
     }
 
+    @Test
+    public void GetAuxiliaryArrayTest(){
+        mergeSort.setArrayToSort(new int[]{3,2});
+
+        assertThat(mergeSort.getAuxiliaryArray().length).isEqualTo(2);
+        assertThat(Arrays.toString(mergeSort.getAuxiliaryArray())).isEqualTo("[0, 0]");
+    }
+
 }

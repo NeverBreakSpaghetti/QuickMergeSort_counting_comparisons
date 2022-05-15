@@ -19,4 +19,7 @@ public class MergeSort implements SorterState {
     }
 
 
+    public int[] getAuxiliaryArray() {
+        return new int[0];
+    }
 }
