@@ -71,4 +71,14 @@ public class MergeSortTest {
         assertThat(Arrays.toString(mergeSort.getAuxiliaryArray())).isEqualTo("[2, 3, 5, 7]");
     }
 
+    @Test
+    public void mergeCopyAuxiliaryArrayInArrayToSortTest(){
+        mergeSort.setArrayToSort(new int[]{2,3,5,4,6,7});
+
+        mergeSort.merge(0,3,mergeSort.getArrayToSort().length);
+
+        assertThat(Arrays.toString(mergeSort.getAuxiliaryArray())).isEqualTo("[2, 3, 4, 5, 6, 7]");
+        assertThat(Arrays.toString(mergeSort.getArrayToSort())).isEqualTo("[2, 3, 4, 5, 6, 7]");
+    }
+
 }
