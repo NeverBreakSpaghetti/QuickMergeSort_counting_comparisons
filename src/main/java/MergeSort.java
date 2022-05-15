@@ -1,7 +1,7 @@
 public class MergeSort implements SorterState {
     @Override
-    public int[] sort(int[] ints) {
-        return null;
+    public int[] sort(int[] arrayToSort) {
+        return arrayToSort;
     }
 
     @Override
