@@ -3,6 +3,9 @@ public class MergeSort implements SorterState {
     private int[] auxiliaryArray;
     @Override
     public int[] sort(int[] arrayToSort) {
+        setArrayToSort(arrayToSort);
+        if ( arrayToSort != null )
+            mergeSort(0,arrayToSort.length);
         return arrayToSort;
     }
 
