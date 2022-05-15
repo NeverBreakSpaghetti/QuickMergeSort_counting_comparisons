@@ -3,16 +3,13 @@ import org.junit.jupiter.api.Test;
 import java.util.Arrays;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyInt;
-import static org.mockito.Mockito.*;
 
 public class MergeSortTest {
-    SorterState mergeSort = new MergeSort();
+    MergeSort mergeSort = new MergeSort();
 
     @Test
     public void emptyArraySortTest(){
-        assertThat(Arrays.toString(mergeSort.sort(new int[]{}))).isEqualTo("[]");
+        assertThat(Arrays.toString(((SorterState)mergeSort).sort(new int[]{}))).isEqualTo("[]");
     }
 
     @Test
@@ -27,10 +24,9 @@ public class MergeSortTest {
 
     @Test
     public void setAndGetArrayToSortTest(){
-        MergeSort mergeSort2 = new MergeSort();
-        mergeSort2.setArrayToSort(new int[]{3,2});
+        mergeSort.setArrayToSort(new int[]{3,2});
 
-        assertThat(Arrays.toString(mergeSort2.getArrayToSort())).isEqualTo("[3, 2]");
+        assertThat(Arrays.toString(mergeSort.getArrayToSort())).isEqualTo("[3, 2]");
     }
 
 }
