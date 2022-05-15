@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class MergeSort implements SorterState {
     private int[] arrayToSort;
     private int[] auxiliaryArray;
@@ -5,8 +7,8 @@ public class MergeSort implements SorterState {
     public int[] sort(int[] arrayToSort) {
         setArrayToSort(arrayToSort);
         if ( arrayToSort != null )
-            mergeSort(0,arrayToSort.length);
-        return arrayToSort;
+            mergeSort(0,this.arrayToSort.length);
+        return this.arrayToSort;
     }
 
     @Override
@@ -15,9 +17,10 @@ public class MergeSort implements SorterState {
     }
 
     public void setArrayToSort(int[] arrayToSort) {
-        this.arrayToSort=arrayToSort;
-        if ( arrayToSort != null )
-            auxiliaryArray = new int[arrayToSort.length];
+        if ( arrayToSort != null ) {
+            this.arrayToSort= Arrays.copyOf(arrayToSort,arrayToSort.length);
+            auxiliaryArray = new int[this.arrayToSort.length];
+        }
     }
 
     public int[] getArrayToSort() {
