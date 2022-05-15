@@ -1,4 +1,5 @@
 import org.junit.jupiter.api.Test;
+import org.mockito.InOrder;
 
 import java.util.Arrays;
 
@@ -96,6 +97,31 @@ public class MergeSortTest {
 
         verify(mockMergeSort).mergeSort(0,1);
         verify(mockMergeSort).mergeSort(1,2);
+    }
+
+    @Test
+    public void mergeSortOrderOfCallsTest(){
+        MergeSort mockMergeSort = mock(MergeSort.class);
+        InOrder inOrder = inOrder(mockMergeSort);
+        doCallRealMethod().when(mockMergeSort).setArrayToSort(any());
+        doCallRealMethod().when(mockMergeSort).getArrayToSort();
+        doCallRealMethod().when(mockMergeSort).mergeSort(anyInt(),anyInt());
+
+
+
+        mockMergeSort.setArrayToSort(new int[]{3,1,2,5,4});
+        inOrder.verify(mockMergeSort).setArrayToSort(any());
+
+        mockMergeSort.mergeSort(0,5);
+        inOrder.verify(mockMergeSort).mergeSort(0,5);
+        inOrder.verify(mockMergeSort).mergeSort(0,2);
+        inOrder.verify(mockMergeSort).mergeSort(0,1);
+        inOrder.verify(mockMergeSort).mergeSort(1,2);
+        inOrder.verify(mockMergeSort).mergeSort(2,5);
+        inOrder.verify(mockMergeSort).mergeSort(2,3);
+        inOrder.verify(mockMergeSort).mergeSort(3,5);
+        inOrder.verify(mockMergeSort).mergeSort(3,4);
+        inOrder.verify(mockMergeSort).mergeSort(4,5);
     }
 
 }
