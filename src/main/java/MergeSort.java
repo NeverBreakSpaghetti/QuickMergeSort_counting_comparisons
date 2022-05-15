@@ -58,7 +58,7 @@ public class MergeSort implements SorterState {
 
     public void mergeSort(int begin, int end) {
         if ( end-begin > 1 ) {
-            int half = (end - begin) / 2;
+            int half = (begin + end) / 2;
             mergeSort(begin, half);
             mergeSort(half, end);
         }
