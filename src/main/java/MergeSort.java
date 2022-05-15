@@ -61,6 +61,7 @@ public class MergeSort implements SorterState {
             int half = (begin + end) / 2;
             mergeSort(begin, half);
             mergeSort(half, end);
+            merge(begin,half,end);
         }
     }
 }
