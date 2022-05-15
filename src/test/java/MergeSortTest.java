@@ -135,4 +135,16 @@ public class MergeSortTest {
         verify(mockMergeSort).merge(0,1,2);
     }
 
+    @Test
+    public void mergeSortOrderTest(){
+        doCallRealMethod().when(mockMergeSort).setArrayToSort(any());
+        doCallRealMethod().when(mockMergeSort).getArrayToSort();
+        doCallRealMethod().when(mockMergeSort).mergeSort(anyInt(),anyInt());
+
+        mergeSort.setArrayToSort(new int[]{8,2,6,3,4,7,5,1,9,10});
+        mergeSort.mergeSort(0,mergeSort.getArrayToSort().length);
+
+        assertThat(Arrays.toString(mergeSort.getArrayToSort())).isEqualTo("[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]");
+    }
+
 }
