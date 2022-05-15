@@ -159,4 +159,8 @@ public class MergeSortTest {
         assertThat(Arrays.toString(mergeSort.getArrayToSort())).isEqualTo("[0, 0, 1, 1, 2, 3, 4, 5, 7, 8, 10, 10, 11, 11, 11, 13, 14, 15, 16, 17, 18, 19, 21, 22, 23, 24, 25, 26, 29, 30, 30, 31, 32]");
     }
 
+    @Test
+    public void sortCallMergeSortTest(){
+        assertThat(Arrays.toString(mergeSort.sort(new int[]{8,2,6,3,4,7,5,1,9,10}))).isEqualTo("[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]");
+    }
 }
