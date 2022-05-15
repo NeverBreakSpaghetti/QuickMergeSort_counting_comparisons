@@ -55,4 +55,12 @@ public class MergeSort implements SorterState {
         for ( int j=0; j<auxiliaryArray.length; j++)
             arrayToSort[j]=auxiliaryArray[j];
     }
+
+    public void mergeSort(int begin, int end) {
+        if ( end-begin > 1 ) {
+            int half = (end - begin) / 2;
+            mergeSort(begin, half);
+            mergeSort(half, end);
+        }
+    }
 }
