@@ -137,10 +137,6 @@ public class MergeSortTest {
 
     @Test
     public void mergeSortOrderTest(){
-        doCallRealMethod().when(mockMergeSort).setArrayToSort(any());
-        doCallRealMethod().when(mockMergeSort).getArrayToSort();
-        doCallRealMethod().when(mockMergeSort).mergeSort(anyInt(),anyInt());
-
         mergeSort.setArrayToSort(new int[]{8,2,6,3,4,7,5,1,9,10});
         mergeSort.mergeSort(0,mergeSort.getArrayToSort().length);
 
@@ -149,10 +145,6 @@ public class MergeSortTest {
 
     @Test
     public void mergeSortOrderLargeArrayTest(){
-        doCallRealMethod().when(mockMergeSort).setArrayToSort(any());
-        doCallRealMethod().when(mockMergeSort).getArrayToSort();
-        doCallRealMethod().when(mockMergeSort).mergeSort(anyInt(),anyInt());
-
         mergeSort.setArrayToSort(new int[]{16,0,20,32,2,18,14,3,23,6,9,27,30,10,17,13,11,21,1,31,22,15,19,7,8,12,4,25,24,26,28,29,5});
         mergeSort.mergeSort(0,mergeSort.getArrayToSort().length);
 
