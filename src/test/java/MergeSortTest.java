@@ -163,4 +163,13 @@ public class MergeSortTest {
     public void sortCallMergeSortTest(){
         assertThat(Arrays.toString(mergeSort.sort(new int[]{8,2,6,3,4,7,5,1,9,10}))).isEqualTo("[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]");
     }
+
+    @Test
+    public void notEditInputArrayTest(){
+        int[] inputArray = new int[]{6,8,7};
+
+        assertThat(Arrays.toString(mergeSort.sort(inputArray))).isEqualTo("[6, 7, 8]");
+
+        assertThat(Arrays.toString(inputArray)).isEqualTo("[6, 8, 7]");
+    }
 }
