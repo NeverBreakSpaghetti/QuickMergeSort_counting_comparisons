@@ -68,4 +68,7 @@ public class HeapSort implements SorterState {
         arrayToSort[nodePosition] = arrayToSort[maxChildPosition];
         arrayToSort[maxChildPosition] = temp;
     }
+
+    public void heapSort() {
+    }
 }
