@@ -3,6 +3,7 @@ import java.util.Arrays;
 public class HeapSort implements SorterState {
 
     private int[] arrayToSort;
+    private int keysComparisonsNumber;
 
     @Override
     public int[] sort(int[] arrayToSort) {
@@ -16,7 +17,7 @@ public class HeapSort implements SorterState {
 
     @Override
     public int getKeysComparisonsNumber() {
-        return 0;
+        return keysComparisonsNumber;
     }
 
     public void setArrayToSort(int[] arrayToSort) {
@@ -49,10 +50,13 @@ public class HeapSort implements SorterState {
                 toPlace=false;
             else{
                 if(arrayToSort[maxChildPosition]>arrayToSort[nodePosition]) {
+                    keysComparisonsNumber++;
                     swap(maxChildPosition, nodePosition);
                     nodePosition=maxChildPosition;
-                }else
-                    toPlace=false;
+                }else {
+                    keysComparisonsNumber++;
+                    toPlace = false;
+                }
             }
         }while(toPlace);
     }
@@ -65,8 +69,10 @@ public class HeapSort implements SorterState {
         if (leftChildPosition < end) {
             maxChildPosition = leftChildPosition;
             if (rightChildPosition < end)
-                if (arrayToSort[rightChildPosition] > arrayToSort[leftChildPosition])
+                if (arrayToSort[rightChildPosition] > arrayToSort[leftChildPosition]) {
+                    keysComparisonsNumber++;
                     maxChildPosition = rightChildPosition;
+                }
         }
         return maxChildPosition;
     }
