@@ -5,7 +5,10 @@ public class HeapSort implements SorterState {
     @Override
     public int[] sort(int[] arrayToSort) {
         setArrayToSort(arrayToSort);
-        heapSort();
+        if ( arrayToSort != null ) {
+            heapify(arrayToSort.length);
+            heapSort();
+        }
         return getArray();
     }
 
