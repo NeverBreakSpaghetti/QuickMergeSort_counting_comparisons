@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class HeapSort implements SorterState {
 
     private int[] arrayToSort;
@@ -18,7 +20,8 @@ public class HeapSort implements SorterState {
     }
 
     public void setArrayToSort(int[] arrayToSort) {
-        this.arrayToSort = arrayToSort;
+        if( arrayToSort != null )
+            this.arrayToSort = Arrays.copyOf(arrayToSort,arrayToSort.length);
     }
 
     public int[] getArray() {
