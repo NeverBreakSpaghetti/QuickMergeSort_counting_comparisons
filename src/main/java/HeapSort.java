@@ -25,16 +25,19 @@ public class HeapSort implements SorterState {
             int nodePosition = end / 2 - 1;
             int maxChildPosition = -1;
 
-            maxChildPosition = getMaxChildPosition(nodePosition,end);
-            if (arrayToSort[nodePosition] <= arrayToSort[maxChildPosition]) {
-                swap(nodePosition, maxChildPosition);
+            while ( nodePosition >= 0 ) {
+                maxChildPosition = getMaxChildPosition(nodePosition, end);
+                if (arrayToSort[nodePosition] <= arrayToSort[maxChildPosition]) {
+                    swap(nodePosition, maxChildPosition);
+                }
+                nodePosition--;
             }
         }
     }
 
     private int getMaxChildPosition(int nodePosition, int end) {
-        int leftChildPosition = nodePosition+1;
-        int rightChildPosition = nodePosition+2;
+        int leftChildPosition = 2*nodePosition+1;
+        int rightChildPosition = 2*nodePosition+2;
         int maxChildPosition = -1;
 
         if (leftChildPosition < end) {
