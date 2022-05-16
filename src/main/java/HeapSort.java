@@ -9,4 +9,11 @@ public class HeapSort implements SorterState {
     public int getKeysComparisonsNumber() {
         return 0;
     }
+
+    public void setArrayToSort(int[] ints) {
+    }
+
+    public int[] getArray() {
+        return null;
+    }
 }
