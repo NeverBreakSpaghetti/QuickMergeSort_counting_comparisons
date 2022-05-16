@@ -166,4 +166,11 @@ public class HeapSortTest {
 
         assertThat(heapSort.getKeysComparisonsNumber()).isEqualTo(0);
     }
+
+    @Test
+    public void countComparisonsEmptyArrayTest(){
+        heapSort.sort(new int[]{});
+
+        assertThat(heapSort.getKeysComparisonsNumber()).isEqualTo(0);
+    }
 }
