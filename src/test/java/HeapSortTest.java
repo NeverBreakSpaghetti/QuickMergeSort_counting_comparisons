@@ -109,4 +109,12 @@ public class HeapSortTest {
         assertThat(Arrays.toString(heapSort.getArray())).isEqualTo("[3, 4, 5, 7, 9]");
     }
 
+    @Test
+    public void nineElementsArrayHeapSortTest(){
+        heapSort.setArrayToSort(new int[]{31, 23, 12, 15, 7, 9, 1, 8, 13});
+
+        heapSort.heapSort();
+
+        assertThat(Arrays.toString(heapSort.getArray())).isEqualTo("[1, 7, 8, 9, 12, 13, 15, 23, 31]");
+    }
 }
