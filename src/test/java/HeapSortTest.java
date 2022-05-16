@@ -64,4 +64,13 @@ public class HeapSortTest {
 
         assertThat(Arrays.toString(heapSort.getArray())).isEqualTo("[9, 7, 5, 3]");
     }
+
+    @Test
+    public void multiElementsArrayToHeapifyTest(){
+        heapSort.setArrayToSort(new int[] {15,7,9,23,31,12,1,8,13});
+
+        heapSort.heapify(heapSort.getArray().length);
+        
+        assertThat(Arrays.toString(heapSort.getArray())).isEqualTo("[31, 23, 12, 15, 7, 9, 1, 8, 13]");
+    }
 }
