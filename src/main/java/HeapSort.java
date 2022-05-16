@@ -7,6 +7,6 @@ public class HeapSort implements SorterState {
 
     @Override
     public int getKeysComparisonsNumber() {
-        return -1;
+        return 0;
     }
 }
