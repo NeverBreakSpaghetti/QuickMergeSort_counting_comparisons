@@ -91,4 +91,13 @@ public class HeapSortTest {
         assertThat(Arrays.toString(heapSort.getArray())).isEqualTo("[]");
     }
 
+    @Test
+    public void twoElementsArrayHeapSortTest(){
+        heapSort.setArrayToSort(new int[]{3,2});
+
+        heapSort.heapSort();
+
+        assertThat(Arrays.toString(heapSort.getArray())).isEqualTo("[2, 3]");
+    }
+
 }
