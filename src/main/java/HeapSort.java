@@ -23,28 +23,30 @@ public class HeapSort implements SorterState {
     public void heapify(int end) {
         if( arrayToSort != null ) {
             int nodePosition = end / 2 - 1;
-            int maxChildPosition = -1;
-            int nodeToChackPosition;
-            boolean toPlace=true;
 
             while ( nodePosition >= 0 ) {
-                toPlace=true;
-                nodeToChackPosition=nodePosition;
-                do {
-                    maxChildPosition=getMaxChildPosition(nodeToChackPosition, end);
-                    if(maxChildPosition==-1)
-                        toPlace=false;
-                    else{
-                        if(arrayToSort[maxChildPosition]>arrayToSort[nodeToChackPosition]) {
-                            swap(maxChildPosition, nodeToChackPosition);
-                            nodeToChackPosition=maxChildPosition;
-                        }else
-                            toPlace=false;
-                    }
-                }while(toPlace);
+                fixHeap(nodePosition,end);
                 nodePosition--;
             }
         }
+    }
+
+    private void fixHeap(int nodePosition, int end) {
+        boolean toPlace=true;
+        int maxChildPosition = -1;
+
+        do {
+            maxChildPosition=getMaxChildPosition(nodePosition, end);
+            if(maxChildPosition==-1)
+                toPlace=false;
+            else{
+                if(arrayToSort[maxChildPosition]>arrayToSort[nodePosition]) {
+                    swap(maxChildPosition, nodePosition);
+                    nodePosition=maxChildPosition;
+                }else
+                    toPlace=false;
+            }
+        }while(toPlace);
     }
 
     private int getMaxChildPosition(int nodePosition, int end) {
