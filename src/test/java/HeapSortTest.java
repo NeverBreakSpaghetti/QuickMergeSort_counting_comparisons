@@ -116,4 +116,10 @@ public class HeapSortTest {
 
         assertThat(Arrays.toString(heapSort.getArray())).isEqualTo("[1, 7, 8, 9, 12, 13, 15, 23, 31]");
     }
+    @Test
+    public void nullArraySortTest(){
+        heapSort.sort(null);
+
+        assertThat(Arrays.toString(heapSort.getArray())).isEqualTo("null");
+    }
 }
