@@ -1,5 +1,7 @@
 public class HeapSort implements SorterState {
 
+    private int[] arrayToSort;
+
     @Override
     public int[] sort(int[] ints) {
         return new int[0];
@@ -10,10 +12,11 @@ public class HeapSort implements SorterState {
         return 0;
     }
 
-    public void setArrayToSort(int[] ints) {
+    public void setArrayToSort(int[] arrayToSort) {
+        this.arrayToSort = arrayToSort;
     }
 
     public int[] getArray() {
-        return null;
+        return arrayToSort;
     }
 }
