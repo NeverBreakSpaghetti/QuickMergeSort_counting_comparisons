@@ -159,4 +159,11 @@ public class HeapSortTest {
 
         assertThat(Arrays.toString(inputArray)).isEqualTo("[6, 8, 7]");
     }
+
+    @Test
+    public void countComparisonsNullArrayTest(){
+        heapSort.sort(null);
+
+        assertThat(heapSort.getKeysComparisonsNumber()).isEqualTo(0);
+    }
 }
