@@ -71,6 +71,9 @@ public class HeapSort implements SorterState {
 
     public void heapSort() {
         if ( arrayToSort!=null && arrayToSort.length>1 )
-            swap(0,1);
+            for(int j=arrayToSort.length-1;j>=0;j--){
+                swap(0,j);
+                heapify(j);
+            }
     }
 }
