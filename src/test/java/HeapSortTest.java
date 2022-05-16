@@ -82,4 +82,13 @@ public class HeapSortTest {
 
         assertThat(Arrays.toString(heapSort.getArray())).isEqualTo("null");
     }
+    @Test
+    public void emptyArrayHeapSortTest(){
+        heapSort.setArrayToSort(new int[]{});
+
+        heapSort.heapSort();
+
+        assertThat(Arrays.toString(heapSort.getArray())).isEqualTo("[]");
+    }
+
 }
