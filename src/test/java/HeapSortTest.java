@@ -150,4 +150,13 @@ public class HeapSortTest {
 
         assertThat(Arrays.toString(heapSort.getArray())).isEqualTo("[0, 0, 1, 1, 2, 3, 4, 5, 7, 8, 10, 10, 11, 11, 11, 13, 14, 15, 16, 17, 18, 19, 21, 22, 23, 24, 25, 26, 29, 30, 30, 31, 32]");
     }
+
+    @Test
+    public void notEditInputArrayTest(){
+        int[] inputArray = new int[]{6,8,7};
+
+        assertThat(Arrays.toString(heapSort.sort(inputArray))).isEqualTo("[6, 7, 8]");
+
+        assertThat(Arrays.toString(inputArray)).isEqualTo("[6, 8, 7]");
+    }
 }
