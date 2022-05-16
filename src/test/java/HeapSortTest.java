@@ -173,4 +173,11 @@ public class HeapSortTest {
 
         assertThat(heapSort.getKeysComparisonsNumber()).isEqualTo(0);
     }
+
+    @Test
+    public void countComparisonsThreeElementsArrayTest(){
+        heapSort.sort(new int[]{6,8,7});
+
+        assertThat(heapSort.getKeysComparisonsNumber()).isEqualTo(2);
+    }
 }
