@@ -3,8 +3,9 @@ public class HeapSort implements SorterState {
     private int[] arrayToSort;
 
     @Override
-    public int[] sort(int[] ints) {
-        return new int[0];
+    public int[] sort(int[] arrayToSort) {
+        setArrayToSort(arrayToSort);
+        return getArray();
     }
 
     @Override
