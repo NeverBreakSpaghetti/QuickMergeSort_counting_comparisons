@@ -19,4 +19,7 @@ public class HeapSort implements SorterState {
     public int[] getArray() {
         return arrayToSort;
     }
+
+    public void heapify(int end) {
+    }
 }
