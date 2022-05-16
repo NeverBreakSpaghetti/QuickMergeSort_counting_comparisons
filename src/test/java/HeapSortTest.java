@@ -3,7 +3,6 @@ import org.junit.jupiter.api.Test;
 import java.util.Arrays;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class HeapSortTest {
     HeapSort heapSort = new HeapSort();
@@ -30,7 +29,7 @@ public class HeapSortTest {
     }
 
     @Test
-    public void TwoElementsArrayToHeapifyTest(){
+    public void twoElementsArrayToHeapifyTest(){
         heapSort.setArrayToSort(new int[]{2,3});
 
         heapSort.heapify(heapSort.getArray().length);
@@ -111,7 +110,7 @@ public class HeapSortTest {
 
     @Test
     public void nineElementsArrayHeapSortTest(){
-        heapSort.setArrayToSort(new int[]{31, 23, 12, 15, 7, 9, 1, 8, 13});
+        heapSort.setArrayToSort(new int[]{31,23,12,15,7,9,1,8,13});
 
         heapSort.heapSort();
 
