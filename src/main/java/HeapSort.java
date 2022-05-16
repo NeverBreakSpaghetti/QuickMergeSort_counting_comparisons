@@ -5,6 +5,7 @@ public class HeapSort implements SorterState {
     @Override
     public int[] sort(int[] arrayToSort) {
         setArrayToSort(arrayToSort);
+        heapSort();
         return getArray();
     }
 
