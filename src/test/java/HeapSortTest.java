@@ -180,4 +180,11 @@ public class HeapSortTest {
 
         assertThat(heapSort.getKeysComparisonsNumber()).isEqualTo(2);
     }
+
+    @Test
+    public void countComparisonsFiveElementsArrayTest(){
+        heapSort.sort(new int[]{1,5,2,3,6});
+
+        assertThat(heapSort.getKeysComparisonsNumber()).isEqualTo(10);
+    }
 }
