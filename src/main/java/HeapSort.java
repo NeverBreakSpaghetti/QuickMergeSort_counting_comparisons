@@ -24,12 +24,24 @@ public class HeapSort implements SorterState {
         if( arrayToSort != null ) {
             int nodePosition = end / 2 - 1;
             int maxChildPosition = -1;
+            int nodeToChackPosition;
+            boolean toPlace=true;
 
             while ( nodePosition >= 0 ) {
-                maxChildPosition = getMaxChildPosition(nodePosition, end);
-                if (arrayToSort[nodePosition] <= arrayToSort[maxChildPosition]) {
-                    swap(nodePosition, maxChildPosition);
-                }
+                toPlace=true;
+                nodeToChackPosition=nodePosition;
+                do {
+                    maxChildPosition=getMaxChildPosition(nodeToChackPosition, end);
+                    if(maxChildPosition==-1)
+                        toPlace=false;
+                    else{
+                        if(arrayToSort[maxChildPosition]>arrayToSort[nodeToChackPosition]) {
+                            swap(maxChildPosition, nodeToChackPosition);
+                            nodeToChackPosition=maxChildPosition;
+                        }else
+                            toPlace=false;
+                    }
+                }while(toPlace);
                 nodePosition--;
             }
         }
