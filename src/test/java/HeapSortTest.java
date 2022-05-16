@@ -23,9 +23,18 @@ public class HeapSortTest {
     @Test
     public void nullArrayToHeapifyTest(){
         heapSort.setArrayToSort(null);
-        
+
         heapSort.heapify(0);
 
         assertThat(Arrays.toString(heapSort.getArray())).isEqualTo("null");
+    }
+
+    @Test
+    public void TwoElementsArrayToHeapifyTest(){
+        heapSort.setArrayToSort(new int[]{2,3});
+
+        heapSort.heapify(heapSort.getArray().length);
+
+        assertThat(Arrays.toString(heapSort.getArray())).isEqualTo("[3, 2]");
     }
 }
