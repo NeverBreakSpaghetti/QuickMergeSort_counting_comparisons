@@ -85,4 +85,15 @@ public class InsertionSortTest {
 
         assertThat(insertionSort.getKeysComparisonsNumber()).isEqualTo(2);
     }
+
+    @Test
+    public void countComparisonsResetOnSetArrayToSortTest(){
+        insertionSort.sort(new int[]{3,2,5});
+
+        assertThat(insertionSort.getKeysComparisonsNumber()).isEqualTo(2);
+
+        insertionSort.sort(new int[]{});
+
+        assertThat(insertionSort.getKeysComparisonsNumber()).isEqualTo(0);
+    }
 }
