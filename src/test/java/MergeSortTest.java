@@ -207,4 +207,15 @@ public class MergeSortTest {
 
         assertThat(mergeSort.getKeysComparisonsNumber()).isEqualTo(3);
     }
+
+    @Test
+    public void countComparisonsResetOnSetArrayToSortTest(){
+        mergeSort.sort(new int[]{3,2,5});
+
+        assertThat(mergeSort.getKeysComparisonsNumber()).isEqualTo(3);
+
+        mergeSort.sort(new int[]{});
+
+        assertThat(mergeSort.getKeysComparisonsNumber()).isEqualTo(0);
+    }
 }
