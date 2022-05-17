@@ -4,8 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class ComparisonTesterTest {
 
@@ -165,5 +164,36 @@ public class ComparisonTesterTest {
 
         assertThat(comparisonsNumberArray[0][0]).isIn(2,3);
         assertThat(comparisonsNumberArray[1][0]).isIn(2,3);
+    }
+
+    @Test
+    public void comparisonsManySortingAlgorithmsMultiElementsListTest(){
+        nElements = 5;
+        nArrays = 20;
+        comparisonTester.setNElements(nElements);
+        comparisonTester.setNArrays(nArrays);
+        boolean equalComparisonsNumber = true;
+
+        List<SorterState> sortingAlgorithmList = new ArrayList<>();
+        sortingAlgorithmList.add(new QuickMergeSort());
+        sortingAlgorithmList.add(new QuickSort());
+        sortingAlgorithmList.add(new MergeSort());
+        sortingAlgorithmList.add(new HeapSort());
+        sortingAlgorithmList.add(new InsertionSort());
+
+        int[][] comparisonsNumberArray = comparisonTester.countComparisons(sortingAlgorithmList);
+
+        int column = 1;
+        int algorithmRow = 1;
+        while( equalComparisonsNumber && column<nArrays ){
+            while( equalComparisonsNumber && algorithmRow<sortingAlgorithmList.size() ){
+                if( comparisonsNumberArray[algorithmRow-1][column] != comparisonsNumberArray[algorithmRow][column] )
+                    equalComparisonsNumber=false;
+                algorithmRow++;
+            }
+            column++;
+        }
+
+        assertFalse(equalComparisonsNumber);
     }
 }

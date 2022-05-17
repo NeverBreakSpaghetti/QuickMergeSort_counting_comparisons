@@ -58,7 +58,7 @@ public class ComparisonTester {
                     array = createRandomArray(nElements);
                     for (int a = 0; a < sortingAlgorithmList.size(); a++ ) {
                         sortingAlgorithmList.get(a).sort(array);
-                        resultComparisonsNumberBySorter[a][i] = sortingAlgorithmList.get(0).getKeysComparisonsNumber();
+                        resultComparisonsNumberBySorter[a][i] = sortingAlgorithmList.get(a).getKeysComparisonsNumber();
                     }
                 }
             }
