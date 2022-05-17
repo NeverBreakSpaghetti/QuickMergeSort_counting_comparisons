@@ -153,4 +153,15 @@ public class QuickSortTest {
         sorterState.sort(new int[]{7,2,3,9,8});
         assertThat(sorterState.getKeysComparisonsNumber()).isEqualTo(10);
     }
+
+    @Test
+    public void countComparisonsResetOnSetArrayToSortTest(){
+        quickSort.sort(new int[]{7,2,3,9,8});
+
+        assertThat(quickSort.getKeysComparisonsNumber()).isEqualTo(10);
+
+        quickSort.setArrayToSort(new int[]{});
+
+        assertThat(quickSort.getKeysComparisonsNumber()).isEqualTo(0);
+    }
 }
