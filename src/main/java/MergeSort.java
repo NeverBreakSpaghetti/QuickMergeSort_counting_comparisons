@@ -18,6 +18,7 @@ public class MergeSort implements SorterState {
     }
 
     public void setArrayToSort(int[] arrayToSort) {
+        keysComparisonsNumber=0;
         if ( arrayToSort != null ) {
             this.arrayToSort= Arrays.copyOf(arrayToSort,arrayToSort.length);
             auxiliaryArray = new int[this.arrayToSort.length];
