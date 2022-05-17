@@ -3,7 +3,7 @@ import java.util.Arrays;
 public class MergeSort implements SorterState {
     private int[] arrayToSort;
     private int[] auxiliaryArray;
-    private int keysComparisonsNumber;
+    private long keysComparisonsNumber;
     @Override
     public int[] sort(int[] arrayToSort) {
         setArrayToSort(arrayToSort);
@@ -13,7 +13,7 @@ public class MergeSort implements SorterState {
     }
 
     @Override
-    public int getKeysComparisonsNumber() {
+    public long getKeysComparisonsNumber() {
         return keysComparisonsNumber;
     }
 

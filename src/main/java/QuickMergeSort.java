@@ -2,7 +2,7 @@ import java.util.Arrays;
 
 public class QuickMergeSort implements SorterState {
     private int[] arrayToSort;
-    private int keysComparisonsNumber;
+    private long keysComparisonsNumber;
     public QuickMergeSort(int[] arrayToSort) {
         if (arrayToSort != null)
             this.arrayToSort = Arrays.copyOf(arrayToSort, arrayToSort.length);
@@ -146,7 +146,7 @@ public class QuickMergeSort implements SorterState {
         }
     }
 
-    public int getKeysComparisonsNumber() {
+    public long getKeysComparisonsNumber() {
         return keysComparisonsNumber;
     }
 

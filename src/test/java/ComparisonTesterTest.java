@@ -26,7 +26,7 @@ public class ComparisonTesterTest {
     @Test
     public void comparisonsTwoElementsArraySortTest(){
         comparisonTester.setNElements(2);
-        assertThat(comparisonTester.countComparisonsSort()[0]).isIn(2,3);
+        assertThat((int)comparisonTester.countComparisonsSort()[0]).isIn(2,3);
     }
 
     @Test
@@ -39,7 +39,7 @@ public class ComparisonTesterTest {
     public void comparisonsMultiElementsArraySortTest(){
         nElements=10000;
         comparisonTester.setNElements(nElements);
-        int[] resultComparison = comparisonTester.countComparisonsSort();
+        long[] resultComparison = comparisonTester.countComparisonsSort();
         assertEquals(resultComparison.length, 1);
         assertThat(resultComparison[0]).isGreaterThan(nElements);
     }
@@ -51,7 +51,7 @@ public class ComparisonTesterTest {
         comparisonTester.setNElements(nElements);
         comparisonTester.setNArrays(nArrays);
 
-        int[] resultComparison = comparisonTester.countComparisonsSort();
+        long[] resultComparison = comparisonTester.countComparisonsSort();
         assertEquals(resultComparison.length, 2);
 
         for (int i=0; i<nArrays; i++)
@@ -65,7 +65,7 @@ public class ComparisonTesterTest {
         comparisonTester.setNElements(nElements);
         comparisonTester.setNArrays(nArrays);
 
-        int[] resultComparison = comparisonTester.countComparisonsSort();
+        long[] resultComparison = comparisonTester.countComparisonsSort();
         assertEquals(resultComparison.length, nArrays);
 
         for (int i=0; i<nArrays; i++)
@@ -96,9 +96,9 @@ public class ComparisonTesterTest {
         sorterState = new QuickMergeSort();
         comparisonTester.setState(sorterState);
 
-        int[] comparisonsNumberArray = comparisonTester.countComparisonsSort();
-        assertThat(comparisonsNumberArray[0]).isIn(2,3);
-        assertThat(comparisonsNumberArray[1]).isIn(2,3);
+        long[] comparisonsNumberArray = comparisonTester.countComparisonsSort();
+        assertThat((int)comparisonsNumberArray[0]).isIn(2,3);
+        assertThat((int)comparisonsNumberArray[1]).isIn(2,3);
     }
 
     @Test
@@ -111,9 +111,9 @@ public class ComparisonTesterTest {
         sorterState = new QuickSort();
         comparisonTester.setState(sorterState);
 
-        int[] comparisonsNumberArray = comparisonTester.countComparisonsSort();
-        assertThat(comparisonsNumberArray[0]).isIn(2,3);
-        assertThat(comparisonsNumberArray[1]).isIn(2,3);
+        long[] comparisonsNumberArray = comparisonTester.countComparisonsSort();
+        assertThat((int)comparisonsNumberArray[0]).isIn(2,3);
+        assertThat((int)comparisonsNumberArray[1]).isIn(2,3);
     }
 
     @Test
@@ -126,7 +126,7 @@ public class ComparisonTesterTest {
     public void comparisonsSortingAlgorithmsEmptyListTest(){
         List<SorterState> sortingAlgorithmList = new ArrayList<>();
 
-        int[][] comparisonsNumberArray = comparisonTester.countComparisons(sortingAlgorithmList);
+        long[][] comparisonsNumberArray = comparisonTester.countComparisons(sortingAlgorithmList);
         assertThat(comparisonsNumberArray.length).isEqualTo(0);
     }
 
@@ -140,11 +140,11 @@ public class ComparisonTesterTest {
         List<SorterState> sortingAlgorithmList = new ArrayList<>();
         sortingAlgorithmList.add(new QuickMergeSort());
 
-        int[][] comparisonsNumberArray = comparisonTester.countComparisons(sortingAlgorithmList);
+        long[][] comparisonsNumberArray = comparisonTester.countComparisons(sortingAlgorithmList);
 
         assertThat(comparisonsNumberArray[0].length).isEqualTo(nArrays);
-        assertThat(comparisonsNumberArray[0][0]).isIn(2,3);
-        assertThat(comparisonsNumberArray[0][1]).isIn(2,3);
+        assertThat((int)comparisonsNumberArray[0][0]).isIn(2,3);
+        assertThat((int)comparisonsNumberArray[0][1]).isIn(2,3);
     }
 
     @Test
@@ -160,10 +160,10 @@ public class ComparisonTesterTest {
         sortingAlgorithmList.add(quickMergeSort);
         sortingAlgorithmList.add(quickSort);
 
-        int[][] comparisonsNumberArray = comparisonTester.countComparisons(sortingAlgorithmList);
+        long[][] comparisonsNumberArray = comparisonTester.countComparisons(sortingAlgorithmList);
 
-        assertThat(comparisonsNumberArray[0][0]).isIn(2,3);
-        assertThat(comparisonsNumberArray[1][0]).isIn(2,3);
+        assertThat((int)comparisonsNumberArray[0][0]).isIn(2,3);
+        assertThat((int)comparisonsNumberArray[1][0]).isIn(2,3);
     }
 
     @Test
@@ -181,7 +181,7 @@ public class ComparisonTesterTest {
         sortingAlgorithmList.add(new HeapSort());
         sortingAlgorithmList.add(new InsertionSort());
 
-        int[][] comparisonsNumberArray = comparisonTester.countComparisons(sortingAlgorithmList);
+        long[][] comparisonsNumberArray = comparisonTester.countComparisons(sortingAlgorithmList);
 
         int column = 1;
         int algorithmRow = 1;
