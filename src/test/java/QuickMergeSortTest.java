@@ -334,4 +334,15 @@ public class QuickMergeSortTest {
         sorterState.sort(new int[]{7,2,3,9,8});
         assertThat(sorterState.getKeysComparisonsNumber()).isEqualTo(9);
     }
+
+    @Test
+    public void countComparisonsResetOnSetArrayToSortTest(){
+        quickMergeSort.sort(new int[]{7,2,3,9,8});
+
+        assertThat(quickMergeSort.getKeysComparisonsNumber()).isEqualTo(9);
+
+        quickMergeSort.setArrayToSort(new int[]{});
+
+        assertThat(quickMergeSort.getKeysComparisonsNumber()).isEqualTo(0);
+    }
 }
