@@ -2,7 +2,7 @@ import java.util.Arrays;
 
 public class QuickSort implements SorterState {
     private int[] arrayToSort;
-    private int keysComparisonsNumber;
+    private long keysComparisonsNumber;
     public QuickSort(int[] arrayToSort) {
         if (arrayToSort != null)
             this.arrayToSort = Arrays.copyOf(arrayToSort, arrayToSort.length);
@@ -75,7 +75,7 @@ public class QuickSort implements SorterState {
         }
     }
 
-    public int getKeysComparisonsNumber() {
+    public long getKeysComparisonsNumber() {
         return keysComparisonsNumber;
     }
 

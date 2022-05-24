@@ -2,7 +2,7 @@ import java.util.Arrays;
 
 public class InsertionSort implements SorterState {
 
-    private int keysComparisonsNumber;
+    private long keysComparisonsNumber;
 
     @Override
     public int[] sort(int[] array) {
@@ -28,7 +28,7 @@ public class InsertionSort implements SorterState {
     }
 
     @Override
-    public int getKeysComparisonsNumber() {
+    public long getKeysComparisonsNumber() {
         return keysComparisonsNumber;
     }
 }

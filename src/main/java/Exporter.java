@@ -18,7 +18,7 @@ public class Exporter {
         return resultRow;
     }
 
-    public String convertComparisonsBySortingAlgorithm(List<SorterState> sortingAlgorithmList, int[][] comparisonsArray) {
+    public String convertComparisonsBySortingAlgorithm(List<SorterState> sortingAlgorithmList, long[][] comparisonsArray) {
         StringBuilder returnString = new StringBuilder();
         String prefix = "";
         for (int i=0; i<sortingAlgorithmList.size(); i++) {
@@ -33,7 +33,7 @@ public class Exporter {
         return returnString.toString();
     }
 
-    public void export(String filename, List<SorterState> sortingAlgorithmList, int[][] comparisonsArray) {
+    public void export(String filename, List<SorterState> sortingAlgorithmList, long[][] comparisonsArray) {
         if(filename!=null && sortingAlgorithmList!=null && comparisonsArray!=null) {
             try {
                 PrintWriter printWriter = new PrintWriter(filename);

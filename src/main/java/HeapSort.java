@@ -3,7 +3,7 @@ import java.util.Arrays;
 public class HeapSort implements SorterState {
 
     private int[] arrayToSort;
-    private int keysComparisonsNumber;
+    private long keysComparisonsNumber;
 
     @Override
     public int[] sort(int[] arrayToSort) {
@@ -16,7 +16,7 @@ public class HeapSort implements SorterState {
     }
 
     @Override
-    public int getKeysComparisonsNumber() {
+    public long getKeysComparisonsNumber() {
         return keysComparisonsNumber;
     }
 

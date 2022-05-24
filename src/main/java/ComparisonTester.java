@@ -16,8 +16,8 @@ public class ComparisonTester {
     }
 
 
-    public int[] countComparisonsSort() {
-        int[] resultNumbersComparisons = new int[nArrays];
+    public long[] countComparisonsSort() {
+        long[] resultNumbersComparisons = new long[nArrays];
         int[] array;
 
         for (int j=0; j<nArrays; j++) {
@@ -47,12 +47,12 @@ public class ComparisonTester {
         return sorterState;
     }
 
-    public int[][] countComparisons(List<SorterState> sortingAlgorithmList) {
-        int[][] resultComparisonsNumberBySorter =  null;
+    public long[][] countComparisons(List<SorterState> sortingAlgorithmList) {
+        long[][] resultComparisonsNumberBySorter =  null;
         int[] array;
 
         if ( sortingAlgorithmList != null ) {
-            resultComparisonsNumberBySorter = new int[sortingAlgorithmList.size()][nArrays];
+            resultComparisonsNumberBySorter = new long[sortingAlgorithmList.size()][nArrays];
             if ( sortingAlgorithmList.size() > 0 ) {
                 for (int i = 0; i < nArrays; i++) {
                     array = createRandomArray(nElements);
