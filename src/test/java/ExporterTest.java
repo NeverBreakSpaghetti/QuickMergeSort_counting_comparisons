@@ -43,7 +43,7 @@ public class ExporterTest {
 
     @Test
     public void comparisonsOneSortingAlgorithmConvertToCSVRowToTest(){
-        int[][] comparisonsArray = new int[][]{{3,4,9}};
+        long[][] comparisonsArray = new long[][]{{3,4,9}};
         List<SorterState> sortingAlgorithmList = new ArrayList<>();
         sortingAlgorithmList.add(new QuickMergeSort());
 
@@ -52,7 +52,7 @@ public class ExporterTest {
 
     @Test
     public void comparisonsSortingAlgorithmsConvertToCSVRowToTest(){
-        int[][] comparisonsArray = new int[][]{{3,4,9},{7,3,5}};
+        long[][] comparisonsArray = new long[][]{{3,4,9},{7,3,5}};
         List<SorterState> sortingAlgorithmList = new ArrayList<>();
         sortingAlgorithmList.add(new QuickMergeSort());
         sortingAlgorithmList.add(new QuickSort());
@@ -62,7 +62,7 @@ public class ExporterTest {
 
     @Test
     public void createEmptyCSVTest(){
-        int[][] comparisonsArray= new int[][]{};
+        long[][] comparisonsArray= new long[][]{};
         List<SorterState> sortingAlgorithmList = new ArrayList<>();
 
         String fileName = "test.csv";
@@ -85,7 +85,7 @@ public class ExporterTest {
 
     @Test
     public void changeSeparatorTest(){
-        int[][] comparisonsArray = new int[][]{{3,4,9}};
+        long[][] comparisonsArray = new long[][]{{3,4,9}};
         List<SorterState> sortingAlgorithmList = new ArrayList<>();
         sortingAlgorithmList.add(new QuickMergeSort());
 
@@ -99,7 +99,7 @@ public class ExporterTest {
         List<SorterState> sortingAlgorithmList = new ArrayList<>();
         sortingAlgorithmList.add(new QuickMergeSort());
         sortingAlgorithmList.add(new QuickSort());
-        int[][] dummyComparisonsNumberArray = new int[][]{{2,6},{8,1}};
+        long[][] dummyComparisonsNumberArray = new long[][]{{2,6},{8,1}};
 
         exporter.export(fileName,sortingAlgorithmList,dummyComparisonsNumberArray);
 
