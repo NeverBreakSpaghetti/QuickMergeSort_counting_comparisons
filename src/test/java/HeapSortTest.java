@@ -185,7 +185,7 @@ public class HeapSortTest {
     public void countComparisonsFiveElementsArrayTest(){
         heapSort.sort(new int[]{1,5,2,3,6});
 
-        assertThat(heapSort.getKeysComparisonsNumber()).isEqualTo(10);
+        assertThat(heapSort.getKeysComparisonsNumber()).isEqualTo(9);
     }
 
     @Test
@@ -196,6 +196,6 @@ public class HeapSortTest {
 
         heapSort.sort(new int[]{1,5,2,3,6});
 
-        assertThat(heapSort.getKeysComparisonsNumber()).isEqualTo(10);
+        assertThat(heapSort.getKeysComparisonsNumber()).isEqualTo(9);
     }
 }
